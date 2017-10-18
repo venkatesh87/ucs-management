@@ -1,0 +1,288 @@
+univention-management-console-module-top (6.0.1-1) unstable; urgency=medium
+
+  * Bug #43528: Use full width for grids by default
+
+ -- Alexander Kläser <klaeser@univention.de>  Mon, 20 Mar 2017 17:17:58 +0100
+
+univention-management-console-module-top (6.0.0-3) unstable; urgency=medium
+
+  * Bug #43528: Use SearchBox and hide extra search button
+
+ -- Johannes Keiser <keiser@univention.de>  Wed, 08 Mar 2017 13:12:36 +0100
+
+univention-management-console-module-top (6.0.0-2) unstable; urgency=medium
+
+  * Bug #23837: add ucslint to build process
+
+ -- Florian Best <best@univention.de>  Fri, 07 Oct 2016 15:19:47 +0200
+
+univention-management-console-module-top (6.0.0-1) unstable; urgency=medium
+
+  * Bug #41963: UCS-4.2 version bump
+
+ -- Philipp Hahn <hahn@univention.de>  Fri, 12 Aug 2016 13:56:32 +0200
+
+univention-management-console-module-top (5.0.1-2) unstable; urgency=medium
+
+  * Bug #40339: format string with multiple unnamed arguments
+
+ -- Florian Best <best@univention.de>  Thu, 14 Jan 2016 12:28:01 +0100
+
+univention-management-console-module-top (5.0.1-1) unstable; urgency=medium
+
+  * Bug #39302: support psutil 0.9 and >= 2.0
+
+ -- Florian Best <best@univention.de>  Wed, 09 Sep 2015 10:34:53 +0200
+
+univention-management-console-module-top (5.0.0-1) unstable; urgency=medium
+
+  * Bug #39302: fix KeyError in top/query
+
+ -- Florian Best <best@univention.de>  Wed, 09 Sep 2015 09:41:40 +0200
+
+univention-management-console-module-top (4.1.0-5) unstable; urgency=low
+
+  * Bug #25305: prevent traceback when SIGKILL/SIGTERM is send to an
+  process that isn't running anymore
+  * Bug #33193: Fixed Multi kill not working in process overview
+
+ -- Johannes Keiser <keiser@univention.de>  Tue, 17 Mar 2015 13:44:33 +0100
+
+univention-management-console-module-top (4.1.0-4) unstable; urgency=low
+
+  * Bug #33923: Use process uid as process username if the uid can not be
+  resolved by the system.
+
+ -- Johannes Keiser <keiser@univention.de>  Tue, 17 Mar 2015 12:30:14 +0100
+
+univention-management-console-module-top (4.1.0-3) unstable; urgency=low
+
+  * Bug #36161: Adaptions for new psutil API
+
+ -- Dirk Wiesenthal <wiesenthal@univention.de>  Fri, 24 Oct 2014 16:09:55 +0200
+
+univention-management-console-module-top (4.1.0-2) unstable; urgency=low
+
+  * Bug #35654: UMC design adaptions
+
+ -- Florian Best <best@univention.de>  Tue, 14 Oct 2014 18:31:24 +0200
+
+univention-management-console-module-top (4.1.0-1) unstable; urgency=low
+
+  * Bug #35654: UMC design adaptions
+
+ -- Florian Best <best@univention.de>  Thu, 25 Sep 2014 12:43:52 +0200
+
+univention-management-console-module-top (4.0.0-2) unstable; urgency=low
+
+  * Bug #35145: update copyrights
+
+ -- Florian Best <best@univention.de>  Fri, 29 Aug 2014 11:17:17 +0200
+
+univention-management-console-module-top (4.0.0-1) unstable; urgency=low
+
+  * Bug #35145: Start UCS 4.0 development
+
+ -- Florian Best <best@univention.de>  Thu, 10 Jul 2014 17:45:05 +0200
+
+univention-management-console-module-top (3.0.3-1) unstable; urgency=low
+
+  * revised UMC module description (Bug #32022)
+
+ -- Lukas Walter <walter@univention.de>  Wed, 30 Oct 2013 16:45:16 +0100
+
+univention-management-console-module-top (3.0.2-1) unstable; urgency=low
+
+  * Bug #30004: adjustements for new notifications
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 23 Oct 2013 15:52:02 +0200
+
+univention-management-console-module-top (3.0.1-1) unstable; urgency=low
+
+  * revised UMC module description (Bug #32022)
+
+ -- Lukas Walter <walter@univention.de>  Fri, 18 Oct 2013 18:05:54 +0200
+
+univention-management-console-module-top (3.0.0-1) unstable; urgency=low
+
+  * Bug #26418: adapt grid actions
+  * version bump (UCS 3.2)
+
+ -- Florian Best <best@univention.de>  Tue, 08 Oct 2013 11:35:21 +0200
+
+univention-management-console-module-top (2.0.6-1) unstable; urgency=low
+
+  * Bug #32048: Add keywords to UMC module definition
+
+ -- Florian Best <best@univention.de>  Mon, 09 Sep 2013 13:25:16 +0200
+
+univention-management-console-module-top (2.0.5-1) unstable; urgency=low
+
+  * fix column sortIndex; Bug #30715
+
+ -- Florian Best <best@univention.de>  Thu, 07 Mar 2013 14:50:29 +0100
+
+univention-management-console-module-top (2.0.4-1) unstable; urgency=low
+
+  * fix typo; Bug #27818
+
+ -- Florian Best <best@univention.de>  Tue, 12 Feb 2013 10:09:33 +0100
+
+univention-management-console-module-top (2.0.3-1) unstable; urgency=low
+
+  * Add priority (Bug #26961)
+
+ -- Dirk Wiesenthal <wiesenthal@univention.de>  Tue, 06 Nov 2012 18:29:11 +0100
+
+univention-management-console-module-top (2.0.2-1) unstable; urgency=low
+
+  * Remove old syntax definitions (Bug #27720)
+
+ -- Dirk Wiesenthal <wiesenthal@univention.de>  Tue, 16 Oct 2012 12:16:02 +0200
+
+univention-management-console-module-top (2.0.1-1) unstable; urgency=low
+
+  * Added PatternSanitizer (Bug #24341)
+
+ -- Dirk Wiesenthal <wiesenthal@univention.de>  Tue, 25 Sep 2012 13:05:32 +0200
+
+univention-management-console-module-top (2.0.0-2) unstable; urgency=low
+
+  * Build only for Python 2.6 (Bug #26852)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Wed, 05 Sep 2012 09:27:36 +0200
+
+univention-management-console-module-top (2.0.0-1) unstable; urgency=low
+
+  * ported module to Dojo 1.8; Bug #26857
+
+ -- Alexander Kläser <klaeser@univention.de>  Tue, 04 Sep 2012 17:42:50 +0200
+
+univention-management-console-module-top (1.0.15-2) unstable; urgency=low
+
+  * Adapted caption and translation (Bug #24724)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Fri, 18 Nov 2011 23:37:19 +0100
+
+univention-management-console-module-top (1.0.15-1) unstable; urgency=low
+
+  * add copyright headers to JavaScript files (Bug #23210)
+
+ -- Janek Walkenhorst <walkenhorst@univention.de>  Thu, 17 Nov 2011 12:54:00 +0100
+
+univention-management-console-module-top (1.0.14-1) unstable; urgency=low
+
+  * removed vsize and rssize column
+  * removed isStandardAction flag
+  * renamed kill function
+  * fixed wrong cpu/mem percent
+  * using cpu percent as default sort order
+  (Bug #24037)
+
+ -- Jascha Geerds <geerds@univention.de>  Wed, 26 Oct 2011 09:57:51 +0200
+
+univention-management-console-module-top (1.0.13-2) unstable; urgency=low
+
+  * Added dependency to univention-directory-manager-tools (Bug #23342)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Tue, 25 Oct 2011 15:35:14 +0200
+
+univention-management-console-module-top (1.0.13-1) unstable; urgency=low
+
+  * adapt join script to new UMC UDM modules for access right management; Bug #23494
+
+ -- Andreas Büsching <buesching@univention.de>  Wed, 12 Oct 2011 19:38:55 +0200
+
+univention-management-console-module-top (1.0.12-1) unstable; urgency=low
+
+  * Fixed translation (Bug #22850)
+
+ -- Jascha Geerds <geerds@univention.de>  Wed, 28 Sep 2011 16:26:24 +0200
+
+univention-management-console-module-top (1.0.11-1) unstable; urgency=low
+
+  * Check if process exist
+  * Modify layout of search widget
+  * Add confirmation dialog
+  (Bug #22850)
+
+ -- Jascha Geerds <geerds@univention.de>  Tue, 27 Sep 2011 11:48:27 +0200
+
+univention-management-console-module-top (1.0.10-1) unstable; urgency=low
+
+  * changed icon sizes in overview to 50x50, removed 24x24, 32x32, 64x64
+    (r27002, Bug #22881)
+
+ -- Alexander Kläser <klaeser@univention.de>  Tue, 20 Sep 2011 12:22:19 +0200
+
+univention-management-console-module-top (1.0.9-1) unstable; urgency=low
+
+  * Fix command column
+  * Fix missing import
+  * Change notify message
+  (Bug #22850)
+
+ -- Jascha Geerds <geerds@univention.de>  Mon, 15 Aug 2011 16:45:38 +0200
+
+univention-management-console-module-top (1.0.8-1) unstable; urgency=low
+
+  * changed actions to isMultiAction and isStandardAction (Bug #22881)
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 04 Aug 2011 15:47:10 +0200
+
+univention-management-console-module-top (1.0.7-1) unstable; urgency=low
+
+  * changed column widths to 'adjust' (Bug #22881)
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 03 Aug 2011 15:20:49 +0200
+
+univention-management-console-module-top (1.0.6-1) unstable; urgency=low
+
+  * adaptations to use umc.widgets.Page (Bug #22881)
+
+ -- Alexander Kläser <klaeser@univention.de>  Tue, 02 Aug 2011 11:55:25 +0200
+
+univention-management-console-module-top (1.0.5-1) unstable; urgency=low
+
+  * add join script to create UMC acls ans operations; Bug #22850
+
+ -- Andreas Büsching <buesching@univention.de>  Mon, 01 Aug 2011 16:16:57 +0200
+
+univention-management-console-module-top (1.0.4-1) unstable; urgency=low
+
+  * Adaptations for JavaScript API changes (Bug #22461)
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 28 Jul 2011 15:07:47 +0200
+
+univention-management-console-module-top (1.0.3-1) unstable; urgency=low
+
+  * Fix terminate/kill function
+  * Remove obsolete code
+  * Add translation
+  * Remove programm column
+  * Adjust vsize & rssize
+  * Fix "command" column
+  (Bug #22850)
+
+ -- Jascha Geerds <geerds@univention.de>  Thu, 21 Jul 2011 12:41:50 +0200
+
+univention-management-console-module-top (1.0.2-1) unstable; urgency=low
+
+  * Remove "number of processes"-box
+  * Fix dependency typo
+  * Rewrite query function
+  (Bug #22850)
+
+ -- Jascha Geerds <geerds@univention.de>  Thu, 14 Jul 2011 17:15:00 +0200
+
+univention-management-console-module-top (1.0.1-1) unstable; urgency=low
+
+  * Rewrite python backend (Bug #22850)
+
+ -- Jascha Geerds <geerds@univention.de>  Fri, 15 Jul 2011 14:23:55 +0200
+
+univention-management-console-module-top (1.0.0-1) unstable; urgency=low
+
+  * Initial release (Bug #22850)
+
+ -- Jascha Geerds <geerds@univention.de>  Tue, 12 Jul 2011 12:27:45 +0200

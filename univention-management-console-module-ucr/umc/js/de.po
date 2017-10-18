@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Univention GmbH
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: univention-management-console-module-ucr\n"
+"Report-Msgid-Bugs-To: packages@univention.de\n"
+"POT-Creation-Date: 2017-03-08 13:43+0100\n"
+"PO-Revision-Date: 2016-01-14 11:26+0100\n"
+"Last-Translator: Univention GmbH <packages@univention.de>\n"
+"Language-Team: Univention GmbH <packages@univention.de>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: umc/js/ucr.js:227
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: umc/js/ucr.js:171
+msgid "Add UCR variable"
+msgstr "UCR-Variable hinzufügen"
+
+#: umc/js/ucr.js:228
+msgid "Adding a new UCR variable"
+msgstr "Hinzufügen einer UCR-Variable"
+
+#: umc/js/ucr.js:303 umc/js/ucr.js:313
+msgid "All"
+msgstr "Alle"
+
+#: umc/js/ucr.js:255
+#, javascript-format
+msgid "Are you sure to delete the %d selected UCR variable(s)?"
+msgstr ""
+"Sind Sie sicher, dass %d ausgewählte UCR-Variable(n) gelöscht werden sollen?"
+
+#: umc/js/ucr.js:115 umc/js/ucr.js:264
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: umc/js/ucr.js:301
+msgid "Category"
+msgstr "Kategorie"
+
+#: umc/js/ucr.js:300
+msgid "Category the UCR variable should be associated with"
+msgstr "Kategorie, die der UCR-Variable zugeordnet sein soll"
+
+#: umc/js/ucr.js:249 umc/js/ucr.js:256
+msgid "Delete"
+msgstr "Löschen"
+
+#: umc/js/ucr.js:250
+msgid "Deleting the selected UCR variables"
+msgstr "Löschen der ausgewählten UCR-Variablen"
+
+#: umc/js/ucr.js:316
+msgid "Description"
+msgstr "Beschreibung"
+
+#: umc/js/ucr.js:90
+msgid "Description of the UCR variable"
+msgstr "Beschreibung der UCR-Variable"
+
+#: umc/js/ucr.js:91
+msgid "Description:"
+msgstr "Beschreibung:"
+
+#: umc/js/ucr.js:237
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: umc/js/ucr.js:70 umc/js/ucr.js:179
+msgid "Edit UCR variable"
+msgstr "UCR-Variable bearbeiten"
+
+#: umc/js/ucr.js:80
+msgid "Name of UCR variable"
+msgstr "Name der UCR-Variable"
+
+#: umc/js/ucr.js:106
+msgid "Save"
+msgstr "Speichern"
+
+#: umc/js/ucr.js:311
+msgid "Search attribute"
+msgstr "Suchattribut"
+
+#: umc/js/ucr.js:322
+msgid "Search..."
+msgstr "Suche..."
+
+#: umc/js/ucr.js:310
+msgid ""
+"Select the attribute of a UCR variable that should be searched for the given "
+"keyword"
+msgstr ""
+"Auswählen des Attributes einer UCR-Variable, das durchsucht werden soll"
+
+#: umc/js/ucr.js:238
+msgid "Setting the UCR variable, editing the categories and/or description"
+msgstr ""
+"Setzen einer UCR-Variable und Bearbeiten der Kategorien und Beschreibung"
+
+#: umc/js/ucr.js:221
+msgid ""
+"The Univention Configuration Registry (UCR) is the local database for the "
+"configuration of UCS systems to access and edit system-wide properties in a "
+"unified manner. Caution: Changing UCR variables directly results in the "
+"change of the system configuration. Misconfiguration may cause an unusable "
+"system!"
+msgstr ""
+"Univention Configuration Registry (UCR) ist die lokale Datenbank zur "
+"Konfiguration von UCS-Systemen. Mit diesem Modul lassen sich UCR-Variablen "
+"anlegen, löschen und verändern. Achtung: Das Verändern von UCR-Variablen "
+"führt direkt zur Veränderung der Systemkonfiguration. Falsche Werte können "
+"das System unbrauchbar machen!"
+
+#: umc/js/ucr.js:81 umc/js/ucr.js:274
+msgid "UCR variable"
+msgstr "UCR-Variable"
+
+#: umc/js/ucr.js:275
+msgid "Unique name of the UCR variable"
+msgstr "Eindeutiger Name für die UCR-Variable"
+
+#: umc/js/ucr.js:220
+msgid "Univention Configuration Registry"
+msgstr ""
+
+#: umc/js/ucr.js:86 umc/js/ucr.js:279 umc/js/ucr.js:315
+msgid "Value"
+msgstr "Wert"
+
+#: umc/js/ucr.js:85 umc/js/ucr.js:280
+msgid "Value of the UCR variable"
+msgstr "Wert der UCR-Variable"
+
+#: umc/js/ucr.js:314
+msgid "Variable"
+msgstr "Variable"
+
+#~ msgid "Categories"
+#~ msgstr "Kategorien"
+
+#~ msgid "Categories that the UCR variable is associated with"
+#~ msgstr "Kategorien, die der UCR-Variable zugeordnet sind"
+
+#~ msgid "Entries"
+#~ msgstr "Einträge"
+
+#~ msgid "Keyword"
+#~ msgstr "Schlüsselwort"
+
+#~ msgid "Keyword %(a)s %(b)04d"
+#~ msgstr "Schlüsselwort"
+
+#~ msgid "Keyword that should be searched for in the selected attribute"
+#~ msgstr ""
+#~ "Schlüsselwort, nach dem in dem ausgewählten Attribut gesucht werden soll"
+
+#~ msgid "Reset"
+#~ msgstr "Zurücksetzen"

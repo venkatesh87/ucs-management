@@ -1,0 +1,113 @@
+univention-management-console-module-passwordchange (2.0.2-9) unstable; urgency=medium
+
+  * Bug #43604: Adjust piwik integration
+
+ -- Alexander Kläser <klaeser@univention.de>  Sat, 18 Mar 2017 23:46:38 +0100
+
+univention-management-console-module-passwordchange (2.0.2-8) unstable; urgency=medium
+
+  * Bug #42174: Fix typo in requirements
+
+ -- Alexander Kläser <klaeser@univention.de>  Mon, 13 Mar 2017 18:49:37 +0100
+
+univention-management-console-module-passwordchange (2.0.2-7) unstable; urgency=medium
+
+  * Bug #42174: Improve event handling for consecutive login/logout requests
+
+ -- Alexander Kläser <klaeser@univention.de>  Mon, 13 Mar 2017 17:53:01 +0100
+
+univention-management-console-module-passwordchange (2.0.2-6) unstable; urgency=medium
+
+  * Bug #42173: Close menu when launching password change dialog
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 08 Mar 2017 15:16:03 +0100
+
+univention-management-console-module-passwordchange (2.0.2-5) unstable; urgency=medium
+
+  * Bug #42173: add translations + l10n integration
+
+ -- Alexander Kläser <klaeser@univention.de>  Fri, 03 Mar 2017 16:06:37 +0100
+
+univention-management-console-module-passwordchange (2.0.2-4) unstable; urgency=medium
+
+  * Bug #42173: avoid error on log when cancelling dialog
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 23 Feb 2017 18:26:22 +0100
+
+univention-management-console-module-passwordchange (2.0.2-3) unstable; urgency=medium
+
+  * Bug #42173: show menu entry depending on login state
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 23 Feb 2017 17:02:13 +0100
+
+univention-management-console-module-passwordchange (2.0.2-2) unstable; urgency=medium
+
+  * Bug #42173: fix typos + clean up hook module
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 23 Feb 2017 03:25:15 +0100
+
+univention-management-console-module-passwordchange (2.0.2-1) unstable; urgency=medium
+
+  * Bug #42173: refactor passwordchange module as JavaScript hook
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 22 Feb 2017 16:40:17 +0100
+
+univention-management-console-module-passwordchange (2.0.1-1) unstable; urgency=medium
+
+  * Bug #42263: menu adjustments
+
+ -- Florian Best <best@univention.de>  Tue, 14 Feb 2017 16:16:57 +0100
+
+univention-management-console-module-passwordchange (2.0.0-1) unstable; urgency=medium
+
+  * Bug #41963: UCS-4.2 version bump
+
+ -- Philipp Hahn <hahn@univention.de>  Fri, 12 Aug 2016 13:56:36 +0200
+
+univention-management-console-module-passwordchange (1.0.1-1) unstable; urgency=medium
+
+  * Bump version for UCS 4.1 (Bug #39729)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Tue, 03 Nov 2015 22:15:49 +0100
+
+univention-management-console-module-passwordchange (0.1.3-1) unstable; urgency=medium
+
+  * Bug #35847: reset form after password change
+
+ -- Florian Best <best@univention.de>  Mon, 10 Nov 2014 12:58:44 +0100
+
+univention-management-console-module-passwordchange (0.1.2-1) unstable; urgency=medium
+
+  * Bug #36435: text adaptations
+
+ -- Alexander Kläser <klaeser@univention.de>  Fri, 07 Nov 2014 18:31:36 +0100
+
+univention-management-console-module-passwordchange (0.1.1-1) unstable; urgency=medium
+
+  * Bug #35847: add a standby animation while changing password
+
+ -- Florian Best <best@univention.de>  Thu, 30 Oct 2014 09:33:41 +0100
+
+univention-management-console-module-passwordchange (0.1.0-4) unstable; urgency=medium
+
+  * Bug #35847: fix translation
+
+ -- Florian Best <best@univention.de>  Wed, 29 Oct 2014 14:44:23 +0100
+
+univention-management-console-module-passwordchange (0.1.0-3) unstable; urgency=medium
+
+  * Bug #35654: use app.registerOnStartup instead of topic
+
+ -- Florian Best <best@univention.de>  Wed, 29 Oct 2014 10:56:23 +0100
+
+univention-management-console-module-passwordchange (0.1.0-2) unstable; urgency=medium
+
+  * Bug #35847: add  "passwordchange-all" to "default-umc-users"
+
+ -- Florian Best <best@univention.de>  Tue, 28 Oct 2014 23:03:56 +0100
+
+univention-management-console-module-passwordchange (0.1.0-1) unstable; urgency=low
+
+  * Bug #35847: Initial release
+
+ -- Florian Best <best@univention.de>  Mon, 27 Oct 2014 15:23:29 +0100

@@ -1,0 +1,122 @@
+/* Select
+ * 
+ * Styling Select mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitSelect - for border, background-color
+ * 		.dijitButtonContents - for border
+ *
+ * 2. Arrow
+ * 		.dijitArrowButton - for border, padding and background-color|image
+ * 		.dijitArrowButtonInner - for border, background-color|image, display and width|height
+ * 
+ * 3. Menu
+ * 		.dijitSelectMenu .* - for border, padding
+ * 
+ * 4. Various states
+ * 		.dijitSelectHover|.dijitSelectFocused|.dijitSelectDisabled .* - for border, padding and background-color|image 
+ */
+
+@import "../variables"
+
+.umc .dijitSelect
+	width: 100%
+	background-color: white
+
+	td
+		height: 32px
+
+	.dijitButtonText
+		font-size: $font-size-subheading
+		color: $text-color
+		padding: 0
+		text-transform: none
+		font-weight: normal
+
+	.dijitButtonContents
+		border: none
+		padding-left: 10px
+
+.umc .dijitSelectMenu.dijitMenu .dijitMenuItem td
+	font-weight: normal
+	padding: 5px 10px
+
+/* normal status */
+.umc .dijitSelect .dijitArrowButtonContainer
+	//border: 1px solid $arrowbutton-inner-border-color
+	border: none
+	width: $width-icon
+
+
+.umc .dijitSelect .dijitArrowButton
+	padding: 0 10px 0 0
+	//background-color: $arrowbutton-background-color
+	//standard-gradient("../")
+
+
+.umc .dijitSelect .dijitArrowButton .dijitArrowButtonInner
+	//height:16px
+	opacity: 1
+	margin-top: 0
+
+
+/* hover status */
+.umc .dijitSelectHover
+	//background-color: $textbox-hovered-background-color
+	//textbox-background-image()
+	//background-repeat: repeat-x
+
+
+.umc .dijitSelectHover .dijitArrowButton
+	//background-color:$arrowbutton-hovered-background-color
+
+
+.umc .dijitSelectHover .dijitArrowButton .dijitArrowButtonInner
+	background-position: -20px 0
+	opacity: 0.66
+
+
+/* focused status */
+.umc .dijitSelectFocused .dijitArrowButton
+	//background-color:#7dbefa		// TODO.  Mailed Jason about inconsistent ComboBox/Spinner behavior.
+	//active-gradient("../")
+
+
+.umc .dijitSelectFocused .dijitArrowButton
+	border: none
+	//padding: 1px
+
+
+.umc .dijitSelectFocused .dijitArrowButton .dijitArrowButtonInner
+	background-position: -20px 0
+	opacity: 1
+
+
+/* disable status */
+.umc .dijitSelectDisabled
+	border-color: $disabled-border-color
+	background-color: $disabled-background-color
+	background-image: none
+	color: $disabled-text-color
+
+
+.umc .dijitSelectDisabled .dijitArrowButton .dijitArrowButtonInner
+	background-position: 0 0
+	opacity: 0.5
+
+
+/* Dropdown menu style for select */
+.umc .dijitSelectMenu td.dijitMenuItemIconCell,
+.umc .dijitSelectMenu td.dijitMenuArrowCell 
+	/* so that arrow and icon cells from MenuItem are not displayed */
+	display: none  
+
+
+.umc .dijitSelectMenu td.dijitMenuItemLabel
+	/* line up menu text with text in select box (in LTR and RTL modes) */
+	padding: $textbox-padding
+
+
+.umc .dijitSelectMenu .dijitMenuSeparatorTop
+	border-bottom:1px solid $focused-border-color
+

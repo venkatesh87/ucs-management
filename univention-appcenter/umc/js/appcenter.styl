@@ -1,0 +1,504 @@
+/*
+ * Copyright 2014-2017 Univention GmbH
+ *
+ * http://www.univention.de/
+ *
+ * All rights reserved.
+ *
+ * The source code of this program is made available
+ * under the terms of the GNU Affero General Public License version 3
+ * (GNU AGPL V3) as published by the Free Software Foundation.
+ *
+ * Binary versions of this program provided by Univention to you as
+ * well as other copyrighted, protected or trademarked materials like
+ * Logos, graphics, fonts, specific documentations and configurations,
+ * cryptographic keys etc. are subject to a license agreement between
+ * you and Univention and not subject to the GNU AGPL V3.
+ *
+ * In the case you use this program under the terms of the GNU AGPL V3,
+ * the program is provided in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public
+ * License with the Debian GNU/Linux or Univention distribution in file
+ * /usr/share/common-licenses/AGPL-3; if not, see
+ * <http://www.gnu.org/licenses/>.
+ */
+
+column-count(count)
+	column-count: count
+	-webkit-column-count: count
+	-moz-column-count: count
+
+$app-detailspane-background-color = #fff
+
+.umcAppCenterGallery
+	.umcGalleryWrapperItem
+		.appStatusIcon
+			background-image: url("appcenter/statusIcons.svg")
+
+			&.appUpdateIcon
+				background-position: 0 0
+
+			&.appEndOfLifeIcon
+				background-position: -80px 0
+
+		.appStatusHoverIcon
+			&.appUpdateIcon
+				background-position: -40px 0
+
+			&.appEndOfLifeIcon
+				background-position: -120px 0
+
+		.umcGalleryItemActive .umcUpdateIcon,
+		.umcGalleryItem:hover .umcUpdateIcon
+			/* change icon color to white on hover */
+			background-image: url("../../dijit/themes/umc/images/icons-white.svg")
+
+.umcAppDetailsPage
+	.umcAppButton
+		float: right
+
+	.umcAppButton.umcAppButtonFirstRow
+		margin-bottom: 15px
+
+	.umcAppButton.umcAppButtonFirstRow + .umcAppButton:not(.umcAppButtonFirstRow)
+		clear: left
+
+	.umcAppButton.umcActionButton
+		float: none
+
+.categoryButton, .categorySpan
+	background-color: transparent
+	border: 0
+	border-right: 1px solid lightgrey
+	padding: 0 0.4em 0 0
+	margin-right: 0.4em
+
+	&:first-child
+		padding-left: 0
+
+	&:last-child
+		border-right: 0
+
+.categoryButton
+	text-decoration: underline
+	opacity: 0.66
+
+	&:hover
+		opacity: 1
+
+.umcGalleryCategoryHeader
+	margin: 1em 5px 1em 5px
+	border-bottom: 0
+
+.umcGalleryButton
+	margin-top: 1em
+	padding-bottom: 1em
+	border-bottom: 1px solid #b4b4b4
+
+	&:last-child
+		border-bottom: 0
+
+.umc .dijitTitlePane.appDetailsPane
+	.dijitTitlePaneTitle
+		color: #a9a9a9
+		border-top: 0
+		padding: 0.5em 0 0.5em 0
+
+		.dijitTitlePaneTextNode
+			vertical-align: middle
+
+		.dijitArrowNode
+			opacity: 0.66
+
+	.dijitTitlePaneTitleClosed .dijitArrowNode
+		background-position: -80px 0
+
+	.dijitTitlePaneTitleClosed.dijitTitlePaneTitleHover .dijitArrowNode
+		background-position: -100px 0
+		opacity: 0.66
+
+	.dijitTitlePaneTitleOpen .dijitArrowNode
+		background-position: 0px 0
+
+	.dijitTitlePaneTitleOpen.dijitTitlePaneTitleHover .dijitArrowNode
+		background-position: -20px 0
+		opacity: 0.66
+
+.appcenterMetaCategory
+	margin-bottom: 3em
+	padding-bottom: 2em
+	border-bottom: 1px solid #c8c8c8
+
+	.umcText
+		font-size: 20px
+		font-weight: 500
+		padding-top: 0.4em
+		padding-bottom: 1em
+		float: left
+
+	.dijitButton
+		float: right
+
+.appDetailsPageActions
+	margin-bottom: 3em
+
+.umc .umcAppDialog
+	.dijitDefaultButton
+		float: right
+
+	.umcPageNav
+		margin-bottom: 0
+
+	.umcAppMoreTitlePane
+		margin-bottom: 1em
+
+		.dijitTitlePaneTitle
+			font-weight: normal
+			color: #787878
+			text-decoration: underline
+			border: none
+			font-size: 1em
+			padding-top: 0.5em
+			padding-bottom: 0.5em
+
+		.dijitArrowNode
+			float: left
+			margin-right: 5px
+			margin-top: 2px
+			background-image: url(../../ dijit/themes/umc/images/icons-small.svg)
+			background-position: 0 -12px
+			background-size: auto
+			width: 12px
+			height: 12px
+			opacity: 0.66
+
+		.dijitTitlePaneTitleHover
+			color: #282828
+
+			.dijitArrowNode
+				background-position: -12px -12px
+				opacity: 1
+
+		.dijitTitlePaneTitleClosed .dijitArrowNode
+			background-position: -72px -12px
+
+		.dijitTitlePaneTitleClosed.dijitTitlePaneTitleHover .dijitArrowNode
+			background-position: -84px -12px
+
+
+.umc .umcAppDetailsPage
+	.umcPageNav
+		.icon
+			margin-bottom: 1em
+			width: 100%
+			max-width: 550px
+			height: 120px
+			display: inline-block
+			background-position: left center
+			background-size: contain
+			/* border instead of padding works with background-size:contain */
+			border-right: solid transparent 20px
+
+		.navContainer
+			display: inline-block
+			width: 100%
+			border-top: 1px solid #c8c8c8
+			padding: 0.8em 0
+
+			.umcText
+				margin-bottom: 0.3em
+				color: #787878
+			.umcAppStatusText, .umcContainerWidget
+				display: block
+				width: 100%
+				@media screen and (min-width: 550px)
+					display: inline-block
+					width: 50%
+			.umcAppStatusText
+				vertical-align: top
+
+			.umcEndOfLifeHelp
+				display: inline-block
+				position: relative
+				left: 10px
+				top: 1px
+
+	.umcAppRating
+		margin-bottom: 0.5em
+
+	.umcAppRatingIcon
+		display: inline-block
+		background: transparent url("appcenter/star.svg") repeat scroll
+		background-size: 1.5em
+		height: 1.5em
+		width: 1.5em
+
+	.umcAppRatingText
+		display: inline-block
+		position: relative
+		bottom: 5px
+		left: 5px
+
+	.umcAppRatingHelp
+		display: inline-block
+		position: relative
+		left: 15px
+		bottom: 4px
+
+	h1
+		margin-bottom: 0.3em
+
+	.mainHeader
+		display: block
+		font-size: 20px
+		font-weight: 500
+		margin-bottom: 24px
+
+	.usage
+		margin-bottom: 3em
+
+	.detailsContainer
+		background-color: $app-detailspane-background-color
+		margin: 0 -1000px
+		padding: 0 1000px
+
+	.carouselWrapper
+		border-top: 1px solid #c8c8c8
+		padding: 3em 0 1em 0
+
+	.descriptionContainer
+		margin-bottom: 3em
+
+
+	/* NOTE: _All_ CSS classes textLongerThanXXXChars from _getCSSClass4TextLength() need to be addressed here! */
+	.descriptionContainer div,
+	.usage
+		@media (min-width: 650px) and (max-width:767px)
+			&.textLongerThan400Chars
+				column-count: 2
+
+		@media (min-width: 650px) and (max-width: 991px)
+			&.textLongerThan500Chars
+				column-count: 2
+
+		@media (min-width: 650px) and (max-width: 1199px)
+			&.textLongerThan600Chars
+				column-count: 2
+
+		@media (min-width: 650px)
+			&.textLongerThan800Chars
+				column-count: 2
+
+	.appDetailsPane
+		background-color: $app-detailspane-background-color
+		margin: 0 -1000px
+		padding: 1.5em 1000px
+
+	.appDetailsFooter
+		margin-bottom: 2em
+		padding: 0
+
+	@media (min-width: 768px)
+		.appDetailsFooter:last-child
+			padding-left: 15px
+
+.AppLiveSearchSidebarDropDown
+	.dijitMenuSeparatorIconCell, .dijitMenuSeparatorLabelCell
+		padding: 3px 0
+
+.umc
+	.umcAppCenter .umcPageNav,
+	.umcAppDetailsPage .umcPageNav
+		margin-bottom: 1.5em
+
+	.umcAppDetailsPage
+		.umcPageMain
+			margin-bottom: 2.25em
+		.umcPageFooter
+			margin-bottom: 7em
+		@media (max-width 768px) 
+			.umcPageFooter
+				margin-bottom: 5em
+
+
+	.umcAppCenter .appcenterMetaCategory
+		.dijitButton.hiddenButton
+			visibility: hidden
+
+		.umcAppCenterGallery
+			/*height: 175px;*/
+			height: auto
+
+	.umcAppCenter .umcLiveSearchSidebar
+		.searchField, .dropDownMenu
+			display: inline-block
+			padding: 0 0.5em 1em
+
+	.umcPage.umcAppCenter .umcSize-TwoThirds
+		@media screen and (max-width: 549px)
+			width: 100%
+
+	.umcThumbnailGallery
+		position: relative
+		line-height: 0
+
+		.galleryLoadingOverlay
+			position: absolute
+			width: 100%
+			height: 100%
+			z-index: 1
+			background-image: url(../../js/dijit/themes/umc/images/standbyAnimation.svg)
+			background-repeat: no-repeat
+			background-position: center center
+			background-color: $app-detailspane-background-color
+			opacity: 1
+
+			&.loaded
+				opacity: 0
+				pointer-events: none
+
+		.galleryOuterContainer
+			position: relative
+
+			.contentSliderWrapper
+				display: inline-block
+				white-space: nowrap
+				overflow: hidden
+				width: 100%
+				padding: 5px 0 // some space for box-shadow of galleryThumbs
+
+				.contentSlider
+					display: inline-block
+					transform: translate3d(0, 0, 0)
+					transition-property: transform
+
+					&.noTransition
+						transition: none
+
+					.galleryThumb
+						display: inline-block
+						vertical-align: middle
+						transition-property: width, height
+						box-shadow: 0 1px 6px rgba(1,0,0,0.117647), 0 1px 4px rgba(0,1,0,0.117647) // taken from univention-web/css/variables.styl
+
+						&.galleryImgThumb
+							background-size: contain
+							background-position: center center
+							background-repeat: no-repeat
+							cursor: pointer
+
+						&.brokenImg
+							width: 150px
+							box-shadow: inset 0px 0px 6px #5a5a5a
+							background: url("appcenter/thumbnailError.svg") no-repeat, #e6e6e6
+							background-position: center center
+							background-size: 30% auto
+
+						&.verticalAlignHelper
+							margin: 0 !important
+							height: 0
+
+					.galleryVideoThumb
+						position: relative
+
+						.galleryVideo
+							width: 100%
+							height: 100%
+							background-color: black
+
+						.galleryVideoThumbnailWrapper
+								width: 100%
+								height: 100%
+
+							.galleryVideoThumbnail
+								width: 100%
+								height: 100%
+								background-size: cover
+								background-position: center center
+								background-repeat: no-repeat
+								cursor: pointer
+
+							.galleryVideoPlayButtonIcon
+								width: 100%
+								height: 100%
+								background: url("appcenter/videoPlayButton.svg") no-repeat;
+								background-size: auto 30%
+								background-position: center center
+								position: absolute
+								top: 0
+
+						&:after
+							content: ''
+							height: 100%
+							display: inline-block
+							vertical-align: middle
+
+		.galleryNavButton
+			cursor: pointer
+			width: 40px
+			opacity: 1
+			transition-property: opacity, height
+			position: absolute
+			z-index: 1
+			background-color: $app-detailspane-background-color
+			padding: 5px 0
+			box-sizing: content-box
+
+			&.disabled
+				opacity: 0
+				cursor: default
+				pointer-events: none
+				height: 0
+
+			.galleryNavButtonImage
+				background-image: url("appcenter/carouselArrowRight.svg")
+				background-size: contain
+				background-repeat: no-repeat
+				background-position: 0 50%
+				height: 100%
+				opacity: 0.4
+				transition: opacity 0.3s
+
+				&:hover
+					opacity: 1
+
+			&.rightGalleryNavButton
+				margin-left: 5px
+				right: 0
+				top: 0
+
+			&.leftGalleryNavButton
+				margin-right: 5px
+
+				.galleryNavButtonImage
+					transform: rotateY(180deg)
+					-webkit-transform: rotateY(180deg)
+
+		.scaleButton
+			cursor: pointer
+			width: 40px
+			height: 40px
+			background-image: url("appcenter/maximize.svg")
+			background-size: 100% 100%
+			position: absolute
+			right: 0
+			top: 0
+			z-index: 1
+			opacity: 0.4
+
+			&.minimize
+				background-image: url("appcenter/minimize.svg")
+
+			&:hover
+				opacity: 1
+
+.umc .umcModule[id^=umc_modules_appcenter_],
+.umc .umcModule[id^=umc_modules_apps_]
+	overflow: hidden
+
+	.umcModuleContent
+		overflow: visible

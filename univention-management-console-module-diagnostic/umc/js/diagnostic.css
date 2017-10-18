@@ -1,0 +1,45 @@
+.umc-diagnostic.dgrid {
+	overflow: hidden;
+	height: auto;
+	border: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+}
+.umc-diagnostic.dgrid .dgrid-selected {
+	background-color: inherit;
+}
+.umc-diagnostic.dgrid .dgrid-scroller {
+	outline: none;
+	position: relative;
+	overflow: visible;
+}
+
+.umc-diagnostic-description {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+.umc-diagnostic h1 {
+	margin-bottom: 0;
+	border-bottom: thin solid #000;
+}
+.umc-diagnostic .dijitButtonText {
+	font-size: 1em;
+}
+.umc-diagnostic .diagnostic-critical span.dijitTitlePaneTextNode::before {
+	color: red;
+}
+.umc-diagnostic .diagnostic-conflict span.dijitTitlePaneTextNode::before {
+	color: darkorange;
+}
+.umc-diagnostic .diagnostic-warning  span.dijitTitlePaneTextNode::before {
+	color: orange;
+}
+.umc-diagnostic .diagnostic-problemfixed span.dijitTitlePaneTextNode::before {
+	color: green;
+}
+.umc-diagnostic .diagnostic-success span.dijitTitlePaneTextNode::before {
+	color: green;
+}
+.umc-diagnostic .diagnostic-problem span.dijitTitlePaneTextNode::before {
+	color: orange;
+}

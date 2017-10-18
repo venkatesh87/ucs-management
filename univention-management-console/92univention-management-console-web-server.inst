@@ -1,0 +1,104 @@
+#!/bin/sh
+# -*- coding: utf-8 -*-
+#
+# Univention Management Console Web Server
+#  Joinscript
+#
+# Copyright 2006-2017 Univention GmbH
+#
+# http://www.univention.de/
+#
+# All rights reserved.
+#
+# The source code of this program is made available
+# under the terms of the GNU Affero General Public License version 3
+# (GNU AGPL V3) as published by the Free Software Foundation.
+#
+# Binary versions of this program provided by Univention to you as
+# well as other copyrighted, protected or trademarked materials like
+# Logos, graphics, fonts, specific documentations and configurations,
+# cryptographic keys etc. are subject to a license agreement between
+# you and Univention and not subject to the GNU AGPL V3.
+#
+# In the case you use this program under the terms of the GNU AGPL V3,
+# the program is provided in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public
+# License with the Debian GNU/Linux or Univention distribution in file
+# /usr/share/common-licenses/AGPL-3; if not, see
+# <http://www.gnu.org/licenses/>.
+
+VERSION=7
+
+. /usr/share/univention-join/joinscripthelper.lib
+. /usr/share/univention-lib/all.sh
+
+joinscript_init
+
+eval "$(ucr shell)"
+
+ucr unset \
+	ucs/web/overview/entries/admin/umc/icon \
+	ucs/web/overview/entries/admin/umc/link \
+	ucs/web/overview/entries/admin/umc/link/de \
+	ucs/web/overview/entries/admin/umc/priority
+
+if [ "$server_role" = "domaincontroller_master" ] || [ "$server_role" = "domaincontroller_backup" ]; then
+	ucr unset \
+		ucs/web/overview/entries/admin/umc/label \
+		ucs/web/overview/entries/admin/umc/label/de \
+		ucs/web/overview/entries/admin/umc/description \
+		ucs/web/overview/entries/admin/umc/description/de
+
+else
+	ucr unset \
+		ucs/web/overview/entries/admin/umc/label \
+		ucs/web/overview/entries/admin/umc/label/de \
+		ucs/web/overview/entries/admin/umc/description \
+		ucs/web/overview/entries/admin/umc/description/de
+
+fi
+
+if [ -n "$umc_saml_sp_server" ]; then
+	fqdn="$umc_saml_sp_server"
+else
+	fqdn="$hostname.$domainname"
+fi
+
+if [ "$JS_LAST_EXECUTED_VERSION" -ge "5" -a "$JS_LAST_EXECUTED_VERSION" -lt "7" ]; then
+	udm saml/serviceprovider remove "$@" --dn "SAMLServiceProviderIdentifier=https://$fqdn/univention-management-console/saml/metadata,cn=saml-serviceprovider,cn=univention,$ldap_base"
+fi
+
+udm saml/serviceprovider create "$@" --ignore_exists --position "cn=saml-serviceprovider,cn=univention,$ldap_base" \
+	--set Identifier="https://$fqdn/univention/saml/metadata" \
+	--set AssertionConsumerService="https://$fqdn/univention/saml/" \
+	--set serviceProviderOrganizationName="Univention Management Console $fqdn" \
+	--set isActivated=TRUE \
+	--set simplesamlAttributes=TRUE \
+	--set attributesNameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" \
+	--append LDAPattributes=uid || die
+
+/usr/share/univention-management-console/saml/update_metadata "$@" || die
+
+ucr set ucs/server/sso/fqdn?"ucs-sso.$domainname"
+eval "$(ucr shell ucs/server/sso/fqdn)"
+
+/etc/init.d/apache2 reload  # make a apache reload for the next call:
+
+_cleanup_die () {
+	ucr unset umc/saml/idp-server; exit 3
+}
+ucr set umc/saml/idp-server?"https://${ucs_server_sso_fqdn}/simplesamlphp/saml2/idp/metadata.php" || _cleanup_die
+[ "$(ls -A /usr/share/univention-management-console/saml/idp/*.xml)" ] || _cleanup_die
+
+/etc/init.d/univention-management-console-web-server restart
+/etc/init.d/slapd crestart
+
+ucs_addServiceToLocalhost 'Univention Management Console' "$@"
+
+joinscript_save_current_version
+
+exit 0

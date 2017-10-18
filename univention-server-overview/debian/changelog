@@ -1,0 +1,98 @@
+univention-server-overview (0.0.3-9) unstable; urgency=medium
+
+  * Bug #44059: Add login button
+
+ -- Alexander Kläser <klaeser@univention.de>  Mon, 27 Mar 2017 18:46:01 +0200
+
+univention-server-overview (0.0.3-8) unstable; urgency=medium
+
+  * Bug #44048: Only create portal entry in a multi-sever domain
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 23 Mar 2017 23:12:01 +0100
+
+univention-server-overview (0.0.3-7) unstable; urgency=medium
+
+  * Bug #43985: automatic detection if login state
+
+ -- Florian Best <best@univention.de>  Wed, 22 Mar 2017 14:53:10 +0100
+
+univention-server-overview (0.0.3-6) unstable; urgency=medium
+
+  * Bug #43595: Make while gallery tile clickable
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 15 Mar 2017 09:23:36 +0100
+
+univention-server-overview (0.0.3-5) unstable; urgency=medium
+
+  * Bug #43595: Make sure that the a-tag is not removed via _resizeItemNames()
+
+ -- Alexander Kläser <klaeser@univention.de>  Mon, 13 Mar 2017 11:20:04 +0100
+
+univention-server-overview (0.0.3-4) unstable; urgency=medium
+
+  * Bug #42263: Filter out docker containers
+
+ -- Alexander Kläser <klaeser@univention.de>  Mon, 13 Mar 2017 10:22:20 +0100
+
+univention-server-overview (0.0.3-3) unstable; urgency=medium
+
+  * Bug #43528: Move 'back to start site' menu entry into univention-web-js
+
+ -- Alexander Kläser <klaeser@univention.de>  Fri, 10 Mar 2017 15:09:33 +0100
+
+univention-server-overview (0.0.3-2) unstable; urgency=medium
+
+  * Bug #42263: Fix entries in umc/de.po
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 09 Mar 2017 22:30:04 +0100
+
+univention-server-overview (0.0.3-1) unstable; urgency=medium
+
+  * Bug #43680: add portal entry for server overview
+
+ -- Florian Best <best@univention.de>  Thu, 09 Mar 2017 13:38:31 +0100
+
+univention-server-overview (0.0.2-1) unstable; urgency=medium
+
+  * Bug #42263: Sort by server type + fix linking issues
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 08 Mar 2017 13:30:43 +0100
+
+univention-server-overview (0.0.1-6) unstable; urgency=medium
+
+  * Bug #42263: Adjust menu structure
+
+ -- Alexander Kläser <klaeser@univention.de>  Tue, 07 Mar 2017 15:55:40 +0100
+
+univention-server-overview (0.0.1-5) unstable; urgency=medium
+
+  Bug #43595:
+  * Adjust domainname and version usage
+  * Add portal link into menu
+  * Integrate l10n
+
+ -- Alexander Kläser <klaeser@univention.de>  Mon, 06 Mar 2017 18:33:29 +0100
+
+univention-server-overview (0.0.1-4) unstable; urgency=medium
+
+  * Bug #43595: fix coding style + references + entitites.encode()
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 02 Mar 2017 12:40:53 +0100
+
+univention-server-overview (0.0.1-3) unstable; urgency=medium
+
+  * Bug #43595: Use umc.tools.isIPAddress()
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 02 Mar 2017 11:25:57 +0100
+
+univention-server-overview (0.0.1-2) unstable; urgency=medium
+
+  * Bug #43595: Adjust labels and some styling
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 01 Mar 2017 10:25:32 +0100
+
+univention-server-overview (0.0.1-1) unstable; urgency=medium
+
+  * Bug #43595: Initial Release
+
+ -- Alexander Kläser <klaeser@univention.de>  Tue, 28 Feb 2017 15:35:44 +0100

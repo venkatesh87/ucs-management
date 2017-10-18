@@ -1,0 +1,53 @@
+[umc/server/autostart]
+Description[de]=Die Variable konfiguriert den Startmodus des UMC-Servers. Wird sie auf 'no' oder 'disabled' gesetzt, kann der Dienst nicht gestartet werden. Wird die auf 'manually' gesetzt, erfolgt kein automatischer Start zum Systemstart, der Dienst kann aber später gezielt gestartet werden.
+Description[en]=This variable configures the start mode of the UMC server. If set to 'no' or 'disabled', the service cannot be started. If the variable is set to 'manually', the service isn't started during system boot, but can be enabled manually at a later point.
+Type=str
+Categories=management-umc
+
+[umc/server/debug/level]
+Description[de]=Diese Variable konfiguriert den Detailgrad der Logmeldungen in /var/log/univention/management-console-server.log. Mögliche Werte: 0-4/99 (0: nur Fehlermeldungen bis 4: alle Debugausgaben, mit 99 werden auch sensible Daten wie Klartext-Passwörter protokolliert).
+Description[en]=This variable configures the verbosity of log messages in /var/log/univention/management-console-server.log. Possible values: 0-4/99 (0: only error messages to 4: all debug statements, with = 99 sensitive data like cleartext passwords is logged as well).
+Type=int
+Categories=management-umc
+
+[umc/server/upload/max]
+Description[de]=Diese Variable konfiguriert die maximale Größe von hochladbaren Dateien in Kilobyte. Ist die Variable nicht gesetzt, gilt 64.
+Description[en]=This variable configures the maximum size of file uploads in kilobyte. If the variable is unset, 64 applies.
+Type=int
+Categories=management-umc
+
+[umc/module/debug/level]
+Description[de]=Der Detailgrad der Logmeldungen in /var/log/univention/management-console-module-*. Mögliche Werte: 0-4/99 (0: nur Fehlermeldungen bis 4: alle Debugausgaben, mit 99 werden auch sensible Daten wie Klartext-Passwörter protokolliert).
+Description[en]=The verbosity of log messages in /var/log/univention/management-console-module-*. Possible values: 0-4/99 (0: only error messages to 4: all debug statements, with = 99 sensitive data like cleartext passwords is logged as well).
+Type=int
+Categories=management-umc
+
+[umc/module/timeout]
+Description[de]=Die Univention Management Console öffnet verschiedene Prozesse für die einzelnen Module (z.B. für die Benutzerverwaltung). Wird ein Modul für den hier konfigurierten Zeitraum in Sekunden nicht benutzt, wird der Prozess beendet und bei einem erneuten Zugriff auf das Modul automatisch wieder gestartet.
+Description[en]=The Univention Management Console opens various processes for its modules (e.g. for user management). If a module isn't used for the time period configured here, the process is terminated and automatically restarted if the module is opened again.
+Type=int
+Categories=management-umc
+
+[umc/module/.*/.*/disabled]
+Description[de]=Ist eine Option der Form 'umc/module/.*/.*/disabled' aktiviert, wird ein Modul in der UMC nicht mehr angezeigt, z.B. 'umc/module/users/user/disabled=true'.
+Description[en]=If an option in the format 'umc/module/.*/.*/disabled' is activated, the module isn't shown in the UMC, e.g. 'umc/module/users/user/disabled=true'.
+Type=bool
+Categories=management-umc
+
+[umc/saml/trusted/sp/.*]
+Description[de]=Diese Variable speichert die gültigen Service Provider. Dieser Wert wird automatisch generiert und sollte nicht geändert werden.
+Description[en]=This variable stores the valid service provider. This value is generated automatically and should not be modified.
+Type=str
+Categories=management-umc
+
+[auth/umc/addon/.*]
+Description[de]=Diese Variable aktiviert in der PAM Konfiguration weitere Authentifizierungsmethoden.
+Description[en]=This variable activates additional auth methods in the PAM configuration.
+Type=str
+Categories=management-umc
+
+[umc/server/disable-security-restrictions]
+Description[de]=Die Variable deaktiviert die Sicherheitsspezifischen Restriktionen gegen XSRF-Attacken im UMC-Server. Dies ist notwendig, damit UCS 4.1 Systeme der Domäne mit UCS 4.2 Systemen kommunizieren können.
+Description[en]=This variable deactivates the security related restrictions against XSRF attacks in the UMC-Server. This is necessary for UCS 4.1 systems in the domain to communicate with UCS 4.2 systems.
+Type=bool
+Categories=management-umc

@@ -1,0 +1,209 @@
+univention-management-console-module-diagnostic (3.0.1-1) unstable; urgency=medium
+
+  * Bug #44038: fix rerunning checks; regression in grid causes the success
+  	element to be returned. ignoring it now.
+
+ -- Florian Best <best@univention.de>  Thu, 23 Mar 2017 14:24:58 +0100
+
+univention-management-console-module-diagnostic (3.0.0-3) unstable; urgency=medium
+
+  * Bug #43528: Use full width for module
+
+ -- Alexander Kläser <klaeser@univention.de>  Mon, 20 Mar 2017 17:40:52 +0100
+
+univention-management-console-module-diagnostic (3.0.0-2) unstable; urgency=low
+
+  * Bug #42161: Corrected some typos.
+
+ -- Richard Ulmer <ulmer@univention.de>  Thu, 01 Sep 2016 11:30:27 +0200
+
+univention-management-console-module-diagnostic (3.0.0-1) unstable; urgency=medium
+
+  * Bug #41963: UCS-4.2 version bump
+
+ -- Philipp Hahn <hahn@univention.de>  Fri, 12 Aug 2016 13:56:17 +0200
+
+univention-management-console-module-diagnostic (2.0.0-5) unstable; urgency=medium
+
+  * Bug #40563: exclude docker hosts in SSH connection check
+
+ -- Florian Best <best@univention.de>  Tue, 12 Apr 2016 08:33:09 +0200
+
+univention-management-console-module-diagnostic (2.0.0-4) unstable; urgency=medium
+
+  * Bug #40339: format string with multiple unnamed arguments
+
+ -- Florian Best <best@univention.de>  Thu, 14 Jan 2016 12:21:07 +0100
+
+univention-management-console-module-diagnostic (2.0.0-3) unstable; urgency=low
+
+  * Bug #38137: more error handling
+
+ -- Felix Botner <botner@univention.de>  Thu, 24 Sep 2015 09:53:05 +0200
+
+univention-management-console-module-diagnostic (2.0.0-2) unstable; urgency=low
+
+  * Bug #38137: added python-paramiko
+
+ -- Felix Botner <botner@univention.de>  Tue, 22 Sep 2015 15:02:18 +0200
+
+univention-management-console-module-diagnostic (2.0.0-1) unstable; urgency=low
+
+  * Bug #38137: added ssh_connection plugin 
+
+ -- Felix Botner <botner@univention.de>  Tue, 22 Sep 2015 14:40:30 +0200
+
+univention-management-console-module-diagnostic (1.0.14-5) unstable; urgency=medium
+
+  * Bug #35861: fixes for the package status plugin
+
+ -- Florian Best <best@univention.de>  Tue, 03 Feb 2015 10:52:56 +0100
+
+univention-management-console-module-diagnostic (1.0.14-4) unstable; urgency=medium
+
+  * Bug #35861: add plugin which checks package status
+
+ -- Florian Best <best@univention.de>  Wed, 14 Jan 2015 09:49:15 +0100
+
+univention-management-console-module-diagnostic (1.0.14-3) unstable; urgency=medium
+
+  * Bug #37032: fix the ping timeout when trying to reach the gateway
+
+ -- Florian Best <best@univention.de>  Wed, 26 Nov 2014 11:31:33 +0100
+
+univention-management-console-module-diagnostic (1.0.14-2) unstable; urgency=low
+
+  * Bug #36454: fixed typo
+
+ -- Drees Dormann <dormann@univention.de>  Wed, 05 Nov 2014 14:18:32 +0100
+
+univention-management-console-module-diagnostic (1.0.14-1) unstable; urgency=medium
+
+  * Bug #35866: fix typo
+
+ -- Florian Best <best@univention.de>  Mon, 03 Nov 2014 17:55:55 +0100
+
+univention-management-console-module-diagnostic (1.0.13-1) unstable; urgency=medium
+
+  * Bug #35866: reset default of max_open_files to 32808
+
+ -- Florian Best <best@univention.de>  Mon, 03 Nov 2014 13:33:31 +0100
+
+univention-management-console-module-diagnostic (1.0.12-1) unstable; urgency=medium
+
+  * Bug #35866: read logfiles line wise
+  * use samba/max_open_files instead of security/limits/user/*
+
+ -- Florian Best <best@univention.de>  Mon, 03 Nov 2014 11:26:28 +0100
+
+univention-management-console-module-diagnostic (1.0.11-1) unstable; urgency=medium
+
+  * Bug #35864: fix proxy authentication; remove 'disable proxy' button
+
+ -- Florian Best <best@univention.de>  Thu, 30 Oct 2014 13:50:59 +0100
+
+univention-management-console-module-diagnostic (1.0.10-1) unstable; urgency=medium
+
+  * Bug #34765: fix word wrapping on small screens
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 30 Oct 2014 11:04:20 +0100
+
+univention-management-console-module-diagnostic (1.0.9-1) unstable; urgency=medium
+
+  * Bug #34765: disable notifications
+
+ -- Florian Best <best@univention.de>  Wed, 29 Oct 2014 16:53:47 +0100
+
+univention-management-console-module-diagnostic (1.0.8-2) unstable; urgency=medium
+
+  * Bug #34765: add missing CSS file
+
+ -- Florian Best <best@univention.de>  Tue, 28 Oct 2014 20:39:41 +0100
+
+univention-management-console-module-diagnostic (1.0.8-1) unstable; urgency=medium
+
+  * Bug #34765: fix noDataMessage
+
+ -- Florian Best <best@univention.de>  Thu, 23 Oct 2014 11:53:35 +0200
+
+univention-management-console-module-diagnostic (1.0.7-2) unstable; urgency=medium
+
+  * Bug #35654: version bump
+
+ -- Florian Best <best@univention.de>  Thu, 23 Oct 2014 11:32:03 +0200
+
+univention-management-console-module-diagnostic (1.0.7-1) unstable; urgency=low
+
+  * Bug #35864: Add Plugin docstring, inherit from dgrid instead of
+  	GalleryPane, add some misssing translations, outsource CSS into external
+  	file
+
+ -- Florian Best <best@univention.de>  Tue, 07 Oct 2014 11:42:15 +0200
+
+univention-management-console-module-diagnostic (1.0.6-1) unstable; urgency=low
+
+  * Bug #35864: fix typo
+
+ -- Florian Best <best@univention.de>  Mon, 06 Oct 2014 17:02:55 +0200
+
+univention-management-console-module-diagnostic (1.0.5-1) unstable; urgency=low
+
+  * Bug #35864: add translation, remove all plugins except network and
+  	security_limits
+
+ -- Florian Best <best@univention.de>  Mon, 06 Oct 2014 16:45:37 +0200
+
+univention-management-console-module-diagnostic (1.0.4-2) unstable; urgency=low
+
+  * Bug #35864: Add missing dependencies
+
+ -- Florian Best <best@univention.de>  Mon, 06 Oct 2014 10:16:54 +0200
+
+univention-management-console-module-diagnostic (1.0.4-1) unstable; urgency=low
+
+  * Bug #35864: adaptions to the network plugins
+  * Bug #35866: adaptions to the security limits plugin
+
+ -- Florian Best <best@univention.de>  Thu, 02 Oct 2014 17:41:50 +0200
+
+univention-management-console-module-diagnostic (1.0.3-2) unstable; urgency=low
+
+  * Bug #34765: fix some translations / fuzzies
+
+ -- Florian Best <best@univention.de>  Wed, 01 Oct 2014 12:50:09 +0200
+
+univention-management-console-module-diagnostic (1.0.3-1) unstable; urgency=low
+
+  * Bug #34765: rewrite
+  * Bug #35864: add a plugin for checking of  network settings (gateway, DNS,
+  	proxy)
+
+ -- Florian Best <best@univention.de>  Thu, 18 Sep 2014 12:39:53 +0200
+
+univention-management-console-module-diagnostic (1.0.2-1) unstable; urgency=low
+
+  * Bug #34765: rewrite
+  * add i18n support
+
+ -- Florian Best <best@univention.de>  Wed, 17 Sep 2014 18:09:10 +0200
+
+univention-management-console-module-diagnostic (1.0.1-1) unstable; urgency=low
+
+  * Bug #34765: code cleanup
+  * sed -i 's/supphealth/diagnostic/g' $(find ! -wholename '*svn*' -type f)
+  * for i in $(find ! -wholename '*svn*' -name '*supphealth*'); do svn mv "$i"
+  	"$(echo -en "$i" | sed s/supphealth/diagnostic/g)"; done
+
+ -- Florian Best <best@univention.de>  Wed, 17 Sep 2014 12:22:33 +0200
+
+univention-management-console-module-diagnostic (1.0.0-1) unstable; urgency=low
+
+  * Starting UCS 4.0-0 development (Bug #34765)
+
+ -- Alexander Kramer <kramer@univention.de>  Wed, 03 Sep 2014 16:09:00 +0200
+
+univention-management-console-module-diagnostic (0.1.0-1) unstable; urgency=low
+
+  * Initial release (Bug #34765)
+
+ -- Lukas Walter <walter@univention.de>  Tue, 18 Mar 2014 13:05:54 +0100

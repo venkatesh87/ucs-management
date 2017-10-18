@@ -1,0 +1,6 @@
+Type: file
+File: etc/runit/univention-directory-listener/run
+
+Type: file
+File: etc/logrotate.d/univention-directory-listener
+Variables: logrotate/.*

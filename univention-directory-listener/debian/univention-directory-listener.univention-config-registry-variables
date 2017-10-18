@@ -1,0 +1,59 @@
+[listener/debug/level]
+Description[de]=Diese Variable konfiguriert den Detailgrad der Logausgaben in /var/log/univention/listener.log. Mögliche Werte: 0-4 (0: nur Fehlermeldungen bis 4: alle Debugausgaben).
+Description[en]=This variable configures the verbosity of the log messages in /var/log/univention/listener.log. Possible values: 0-4 (0: only error messages to 4: all debug statements).
+Type=int
+Categories=service-ln
+
+[listener/network/protocol]
+Description[de]=Das verwendete Protokoll für die Verbindung zum Univention Directory Notifier. "ipv4" verwendet nur IPv4, "ipv6" nur IPv6 und "all" probiert beides.
+Description[en]=The protocol used for the connection to the Univention Directory Notifier. "ipv4" uses only IPv4, "ipv6" uses only IPv6 and "all" tries both.
+Type=str
+Categories=service-ln
+
+[listener/autostart]
+Description[de]=Die Variable konfiguriert den Startmodus des Univention Directory Listener-Dienstes. Wird sie auf 'no' oder 'disabled' gesetzt, kann der Dienst nicht gestartet werden. Wird die auf 'manually' gesetzt, erfolgt kein automatischer Start zum Systemstart, der Dienst kann aber später gezielt gestartet werden.
+Description[en]=This variable configures the start mode of the Univention Directory Listener service. If set to 'no' or 'disabled', the service cannot be started. If the variable is set to 'manually', the service isn't started during system boot, but can be enabled manually at a later point.
+Type=str
+Categories=service-ln
+
+[listener/memberuid/skip]
+Description[de]=Ist diese Variable auf 'yes' gesetzt, führt der Univention Directory Listener zusätzliche Konsistenzprüfungen durch, um zu verhindern, das ein Benutzer einer Gruppe mehrfach hinzugefügt wird. Diese Prüfungen können deaktiviert werden, indem die Variablen 'listener/memberuid/skip' und 'listener/uniquemember/skip' auf 'no' gesetzt werden.
+Description[en]=If this variable is set to 'yes', the Univention Directory Listener performs consistency checks to prevent a user name being added into a group multiple times. These checks can be deactivated by setting the variables 'listener/memberuid/skip' and 'listener/uniquemember/skip' to 'no'.
+Type=str
+Categories=service-ln
+
+[listener/uniquemember/skip]
+Description[de]=Ist diese Variable auf 'yes' gesetzt, führt der Univention Directory Listener zusätzliche Konsistenzprüfungen durch, um zu verhindern, das ein Benutzer einer Gruppe mehrfach hinzugefügt wird. Diese Prüfungen können deaktiviert werden, indem die Variablen 'listener/memberuid/skip' und 'listener/uniquemember/skip' auf 'no' gesetzt werden.
+Description[en]=If this variable is set to 'yes', the Univention Directory Listener performs consistency checks to prevent a user name being added into a group multiple times. These checks can be deactivated by setting the variables 'listener/memberuid/skip' and 'listener/uniquemember/skip' to 'no'.
+Type=str
+Categories=service-ln
+
+[listener/cache/filter]
+Description[de]=LDAP filter string, um das lokale Cachen zu verhindern.
+Description[en]=LDAP filter string to prevent local caching
+Type=str
+Categories=service-ln
+
+[listener/timeout/scans]
+Description[de]=Timeout in Sekunden für lange synchrone LDAP Suchanfragen. Standard: 2h
+Description[en]=Timeout in seconds for long running synchronous LDAP search queries. Default: 2h
+Type=int
+Categories=service-ln
+
+[listener/ldap/retries]
+Description[de]=Anzahl der Versuche zum Verbindungsaufbau zum LDAP-Server im Fall von Fehlern. Standard: 5
+Description[en]=Number of retries to re-connect the LDAP server in case of errors. Default: 5
+Type=int
+Categories=service-ln
+
+[listener/freespace]
+Description[de]=Diese Variable legt die untere Grenze für den freien Speicherplatz in den Verzeichnissen '/var/lib/univention-ldap/' und '/var/lib/univention-directory-listener/', ab der der Listener gestoppt wird. Standard is 10 [MiB].
+Description[en]=This variable configures the lower limit for free space in the directories '/var/lib/univention-ldap/' and '/var/lib/univention-directory-listener/', when the Listener will be stopped. Default is 10 [MiB].
+Type=int
+Categories=service-ln
+
+[listener/cache/mdb/maxsize]
+Description[de]=Die maximale Größe der Cache-Datenbank in Bytes. Auf 64 Bit Systemen ist der Default 2 GiB. Auf 32 Bit Systemen ist der Default 1.9 GiB.
+Description[en]=The maximum size of the cache database in bytes. On 64 bit systems the default is 2 GiB. On 32 bit systems the default is 1.9 GiB.
+Type=str
+Categories=service-ln

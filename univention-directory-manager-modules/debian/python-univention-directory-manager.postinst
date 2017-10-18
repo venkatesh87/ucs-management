@@ -1,0 +1,81 @@
+#!/bin/sh
+#
+# Univention Directory Manager Modules
+#  postinst script
+#
+# Copyright 2004-2017 Univention GmbH
+#
+# http://www.univention.de/
+#
+# All rights reserved.
+#
+# The source code of this program is made available
+# under the terms of the GNU Affero General Public License version 3
+# (GNU AGPL V3) as published by the Free Software Foundation.
+#
+# Binary versions of this program provided by Univention to you as
+# well as other copyrighted, protected or trademarked materials like
+# Logos, graphics, fonts, specific documentations and configurations,
+# cryptographic keys etc. are subject to a license agreement between
+# you and Univention and not subject to the GNU AGPL V3.
+#
+# In the case you use this program under the terms of the GNU AGPL V3,
+# the program is provided in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public
+# License with the Debian GNU/Linux or Univention distribution in file
+# /usr/share/common-licenses/AGPL-3; if not, see
+# <http://www.gnu.org/licenses/>.
+
+. /usr/share/univention-lib/all.sh
+
+eval "$(univention-config-registry shell)"
+
+# Bug #38473: workaround only required up to UCS 4.1-0
+if [ "$1" = "configure" ] && dpkg --compare-versions "$2" lt-nl 10.0.30; then
+	FN="/usr/share/pyshared/univention/admin/handlers/policies/mailquota.py"
+	FN_BACKUP="${FN}.udm_backup"
+	if [ -f "$FN_BACKUP" ] ; then
+		echo "Restoring $FN_BACKUP"
+		mv "$FN_BACKUP" "$FN"
+		if [ -f /usr/share/python-support/univentionUDMModule_policies_mailquota.public ] ; then
+			update-python-modules -v /usr/share/python-support/univentionUDMModule_policies_mailquota.public
+		else
+			echo "WARNING: univentionUDMModule_policies_mailquota.public not found"
+		fi
+	fi
+fi
+
+#DEBHELPER#
+
+if [ "$1" = "configure" ]; then
+	if [ -z "$2" ]; then
+		# only set this for new installations
+		univention-config-registry set \
+			directory/manager/web/modules/users/user/properties/homePostalAddress/syntax=postalAddress \
+			password/hashing/method?SHA-512
+	fi
+
+	univention-config-registry set \
+		directory/manager/web/modules/groups/group/caching/uniqueMember/timeout?300 \
+		directory/manager/user_group/uniqueness=true \
+		password/hashing/method?MD5 # for update keep old behaviour
+
+	if [ -n "$2" ]; then
+		if dpkg --compare-versions "$2" lt-nl 9.0.22-10; then
+			## load the listener module
+			/etc/init.d/univention-directory-listener crestart
+		elif dpkg --compare-versions "$2" lt-nl 10.0.21-1; then
+			univention-directory-listener-ctrl resync udm_extension
+		fi
+	fi
+fi
+
+stop_udm_cli_server
+
+call_joinscript 18python-univention-directory-manager.inst
+
+exit 0

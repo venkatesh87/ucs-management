@@ -1,0 +1,135 @@
+.umc .umcModuleUDM .umcPageNav {
+	margin-bottom: 0em;
+}
+
+.umc .umcUDMSearchForm .umcLabelPane.umcSearchFormElementBeforeSubmitButton {
+	margin-right: -6.5em;
+	padding-right: 6.5em;
+}
+.umc .umcUDMSearchForm.umcUDMSearchFormSimpleTextBox .umcLabelPane.umcSearchFormElementBeforeSubmitButton {
+	padding-right: 2.9em;
+}
+.umc .umcUDMSearchForm.umcUDMSearchFormSimpleTextBox .umcLabelPane.umcSearchFormElementBeforeSubmitButton .dijitInputContainer {
+	margin-right: 30px;
+}
+.umc .umcUDMSearchForm .umcLabelPane.umcSearchFormSubmitButton {
+	padding-right: 0;
+	width: 3.2em;
+	position: relative;
+}
+.umc .umcUDMSearchForm .umcSearchFormChangeViewButton {
+	float: right;
+	padding: 0 !important;
+	box-shadow: none;
+	margin-top: -2em;
+}
+.umc .umcUDMSearchForm .umcSearchFormChangeViewButton .dijitButtonNode {
+	background-color: transparent;
+}
+.umc .umcUDMSearchForm .umcSearchFormChangeViewButton .dijitIcon {
+	background: url('../../js/dijit/themes/umc/images/udmGridViewIcons.svg');
+	background-size: 46px 150px;
+	background-position: 0px 0px;
+	width: 46px;
+	height: 20px;
+}
+.umc .umcUDMSearchForm .umcSearchFormChangeViewButton .umcGridViewIcon-default {
+	background-position: 0px 0px;
+}
+.umc .umcUDMSearchForm .umcSearchFormChangeViewButton.dijitButtonHover .umcGridViewIcon-default {
+	background-position: 0px -26px;
+}
+.umc .umcUDMSearchForm .umcSearchFormChangeViewButton.dijitButtonActive .umcGridViewIcon-default {
+	background-position: 0px -52px;
+}
+.umc .umcUDMSearchForm .umcSearchFormChangeViewButton .umcGridViewIcon-tile {
+	background-position: 0px -78px;
+}
+.umc .umcUDMSearchForm .umcSearchFormChangeViewButton.dijitButtonHover .umcGridViewIcon-tile {
+	background-position: 0px -104px;
+}
+.umc .umcUDMSearchForm .umcSearchFormChangeViewButton.dijitButtonActive .umcGridViewIcon-tile {
+	background-position: 0px -130px;
+}
+
+.umc .umcUDMUsersModule .umcImage {
+	background: none;
+	padding: 0;
+}
+
+.umc .umcUDMUsersModule .umcImage img {
+	margin: 0;
+}
+
+.umc .umcUDMLicenseIcon,
+.umc .umcUDMLicenseImportIcon {
+	height: 150px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-bottom: 20px;
+}
+
+.umc .umcUDMLicenseIcon {
+	background-image: url(udm/license.svg);
+}
+
+.umc .umcUDMLicenseImportIcon {
+	background-image: url(udm/license-import.svg);
+	margin-top: 35px;
+}
+
+.umc .umcUDMDetailPageWarning {
+	border-top: 2px black solid;
+	margin-bottom: 1em;
+	padding-top: 1em;
+}
+
+@media (max-width: 549px) {
+	.umc .umcUDMLicenseImportIcon {
+		margin-top: 0px;
+	}
+}
+
+.umc .umcUDMLicenseTitlePane {
+	margin-top: 2em;
+}
+
+.umc .umcUdmLicenseImportDialog textarea {
+	height: 150px;
+	font-size: 1em;
+}
+
+.umc .udmDetailPage .umcPageNav .umcImage img {
+	max-height: 250px;
+}
+
+.umc .umcUdmNewObjectDialog .dijitStackContainer {
+	height: auto !important;
+}
+
+.umc .umcUdmDialogPage .umcActivationLeaveFieldFreeMessage {
+	display: none;
+}
+
+@media (max-width: 991px) {
+	/* force the tree to have a fixed height in UDM modules */
+	.umc .umcModuleUDM .dijitTree {
+		height: 200px !important;
+	}
+}
+
+.umc .umcUDMMultiInputEditButton {
+	margin: 0;
+}
+
+.umc .umcUDMMultiInputEditButton .dijitButtonNode {
+	width: 27px;
+	padding: 3px;
+}
+
+.umc .umcUDMSearchForm+.umcGrid .dojoxGridCell {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

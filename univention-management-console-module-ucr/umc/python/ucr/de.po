@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Univention GmbH
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: univention-management-console-module-ucr\n"
+"Report-Msgid-Bugs-To: packages@univention.de\n"
+"POT-Creation-Date: 2014-01-13 11:38+0100\n"
+"PO-Revision-Date: 2011-10-29 15:00+0200\n"
+"Last-Translator: Univention GmbH <packages@univention.de>\n"
+"Language-Team: Univention GmbH <packages@univention.de>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: umc/python/ucr/__init__.py:115
+msgid ""
+"Invalid UCR variable entry, the properties \"key\" and \"value\" need to "
+"be specified."
+msgstr ""
+"Ungültiger UCR-Variableneintrag. Die Optionen \"key\" und \"value\" müssen "
+"angegeben werden"
+
+#: umc/python/ucr/__init__.py:155
+#, python-format
+msgid "The UCR variable %(key)s could not be found"
+msgstr "Die UCR-Variable %(key)s konnte nicht gefunden werden"
+
+#: umc/python/ucr/__init__.py:104
+#, python-format
+msgid "The UCR variable %s is read-only and can not be changed!"
+msgstr "Die UCR-Variable %s ist nur lesbar und kann nicht geändert werden!"
+
+#: umc/python/ucr/__init__.py:127
+#, python-format
+msgid "The UCR variable %s is read-only and can not be removed!"
+msgstr "Die UCR-variable %s ist nur lesbar und kann nicht entfernt werden"

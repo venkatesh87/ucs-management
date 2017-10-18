@@ -1,0 +1,1065 @@
+univention-self-service (2.0.16-7) unstable; urgency=low
+
+  * Bug #44477: remove unnecessary logging
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 17 May 2017 11:57:56 +0200
+
+univention-self-service (2.0.16-6) unstable; urgency=low
+
+  * Bug #44477: restart correct memcached instance
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 16 May 2017 12:03:27 +0200
+
+univention-self-service (2.0.16-5) unstable; urgency=low
+
+  * Bug #44477: fix memcached not starting
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 16 May 2017 11:33:09 +0200
+
+univention-self-service (2.0.16-4) unstable; urgency=low
+
+  * Bug #44221: delete only home of unused user, don't walk entire filesystem
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 03 Apr 2017 12:28:07 +0200
+
+univention-self-service (2.0.16-3) unstable; urgency=low
+
+  * Bug #44112: make listener trigger on change
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 03 Apr 2017 10:58:28 +0200
+
+univention-self-service (2.0.16-2) unstable; urgency=low
+
+  * Bug #43899: add systemd service for memcached instance
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 03 Apr 2017 10:13:06 +0200
+
+univention-self-service (2.0.16-1) unstable; urgency=medium
+
+  * Added a simple listener module which sets the UCR variable umc/self-
+    service/passwordreset/email/webserver_address if it is empty
+    (Bug #44112)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Sat, 01 Apr 2017 21:48:55 +0200
+
+univention-self-service (2.0.15-3) unstable; urgency=medium
+
+  * Bug #44146: remove old conffile during update
+
+ -- Florian Best <best@univention.de>  Fri, 31 Mar 2017 16:31:02 +0200
+
+univention-self-service (2.0.15-2) unstable; urgency=medium
+
+  * Bug #44146: remove old conffile during update
+
+ -- Florian Best <best@univention.de>  Fri, 31 Mar 2017 13:50:00 +0200
+
+univention-self-service (2.0.15-1) unstable; urgency=medium
+
+  * Don't create en_US links only (Bug #44102)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Thu, 30 Mar 2017 20:59:49 +0200
+
+univention-self-service (2.0.14-1) unstable; urgency=medium
+
+  * Bug #43899: fixup removal
+
+ -- Florian Best <best@univention.de>  Wed, 29 Mar 2017 14:35:18 +0200
+
+univention-self-service (2.0.13-9) unstable; urgency=medium
+
+  * Bug #43899: remove obsolete password file and machine account rotation
+  	script
+
+ -- Florian Best <best@univention.de>  Wed, 29 Mar 2017 13:31:42 +0200
+
+univention-self-service (2.0.13-8) unstable; urgency=medium
+
+  * Bug #44111: Handle login status for password change
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 29 Mar 2017 12:11:41 +0200
+
+univention-self-service (2.0.13-7) unstable; urgency=medium
+
+  * Bug #44102: Adapt French translation
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 29 Mar 2017 10:10:24 +0200
+
+univention-self-service (2.0.13-6) unstable; urgency=medium
+
+  * Move the creation of the portal entry into the join script and
+    create the entry via UDM (Bug #44102)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Wed, 29 Mar 2017 06:30:43 +0200
+
+univention-self-service (2.0.13-5) unstable; urgency=medium
+
+  * Bug #43899: move dependencies to package
+  * Bug #44112: add backwards compatible redirections
+
+ -- Florian Best <best@univention.de>  Tue, 28 Mar 2017 19:15:04 +0200
+
+univention-self-service (2.0.13-4) unstable; urgency=medium
+
+  * Bug #44111: fix indentation
+
+ -- Jürn Brodersen <brodersen@univention.de>  Tue, 28 Mar 2017 18:03:41 +0200
+
+univention-self-service (2.0.13-3) unstable; urgency=medium
+
+  * Bug #44111: Adjust translations
+
+ -- Alexander Kläser <klaeser@univention.de>  Tue, 28 Mar 2017 17:53:08 +0200
+
+univention-self-service (2.0.13-2) unstable; urgency=medium
+
+  * Bug #44111: Readded change password page and page navigation
+
+ -- Jürn Brodersen <brodersen@univention.de>  Tue, 28 Mar 2017 17:42:19 +0200
+
+univention-self-service (2.0.13-1) unstable; urgency=medium
+
+  * Show password change and password reset entires in portal again
+    (Bug #44102)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Tue, 28 Mar 2017 14:12:19 +0200
+
+univention-self-service (2.0.12-1) unstable; urgency=medium
+
+  * Bug #43899: Add univention-self-service-master package for the
+  	dependencies for univention-self-service-passwordreset-umc as this package
+  	is installed on DC Slaves, as well, now.
+
+ -- Florian Best <best@univention.de>  Mon, 27 Mar 2017 19:03:42 +0200
+
+univention-self-service (2.0.11-4) unstable; urgency=medium
+
+  * Bug #44059: Add login button
+
+ -- Alexander Kläser <klaeser@univention.de>  Mon, 27 Mar 2017 18:46:51 +0200
+
+univention-self-service (2.0.11-3) unstable; urgency=medium
+
+  * Bug #42267: fix whitelist check; prefill username; allow unset sms secret 
+
+ -- Jürn Brodersen <brodersen@univention.de>  Mon, 27 Mar 2017 18:31:09 +0200
+
+univention-self-service (2.0.11-2) unstable; urgency=medium
+
+  * Bug #44059: Add CSS class to button row to ensure flat styling
+
+ -- Alexander Kläser <klaeser@univention.de>  Fri, 24 Mar 2017 12:51:47 +0100
+
+univention-self-service (2.0.11-1) unstable; urgency=medium
+
+  * Bug #42231: Bug #43899: fix shell comparision
+
+ -- Florian Best <best@univention.de>  Thu, 23 Mar 2017 13:34:11 +0100
+
+univention-self-service (2.0.10-6) unstable; urgency=medium
+
+  * Bug #42267: destroy all renew options widgets 
+
+ -- Jürn Brodersen <brodersen@univention.de>  Tue, 21 Mar 2017 13:25:41 +0100
+
+univention-self-service (2.0.10-5) unstable; urgency=medium
+
+  * Bug #42267: separate labels for first input and retype input 
+
+ -- Jürn Brodersen <brodersen@univention.de>  Tue, 21 Mar 2017 11:45:51 +0100
+
+univention-self-service (2.0.10-4) unstable; urgency=medium
+
+  * Bug #42231: fix update code
+
+ -- Florian Best <best@univention.de>  Mon, 20 Mar 2017 14:05:07 +0100
+
+univention-self-service (2.0.10-3) unstable; urgency=medium
+
+  * Bug #43604: Adjust piwik integration
+
+ -- Alexander Kläser <klaeser@univention.de>  Sat, 18 Mar 2017 23:44:49 +0100
+
+univention-self-service (2.0.10-2) unstable; urgency=medium
+
+  * Bug #42267: switch save/cancel button; fix input validation 
+
+ -- Jürn Brodersen <brodersen@univention.de>  Wed, 15 Mar 2017 15:22:23 +0100
+
+univention-self-service (2.0.10-1) unstable; urgency=medium
+
+  * Bug #43565: fix module initialization on DC Slave
+
+ -- Florian Best <best@univention.de>  Wed, 15 Mar 2017 13:35:04 +0100
+
+univention-self-service (2.0.9-8) unstable; urgency=medium
+
+  * Bug #43565: readd removed hook registration
+
+ -- Florian Best <best@univention.de>  Wed, 15 Mar 2017 11:32:19 +0100
+
+univention-self-service (2.0.9-7) unstable; urgency=medium
+
+  * Bug #42231: remove obsolete UCR entries
+
+ -- Florian Best <best@univention.de>  Tue, 14 Mar 2017 14:46:00 +0100
+
+univention-self-service (2.0.9-6) unstable; urgency=medium
+
+  * Bug #42174: Improve event handling for consecutive login/logout requests
+
+ -- Alexander Kläser <klaeser@univention.de>  Mon, 13 Mar 2017 17:52:44 +0100
+
+univention-self-service (2.0.9-5) unstable; urgency=medium
+
+  * Bug #42267: Change redirect from "/univention" to "/univention/"
+
+ -- Jürn Brodersen <brodersen@univention.de>  Mon, 13 Mar 2017 10:04:53 +0100
+
+univention-self-service (2.0.9-4) unstable; urgency=medium
+
+  * Bug #42267: Redirect after password reset and account protection
+
+ -- Jürn Brodersen <brodersen@univention.de>  Fri, 10 Mar 2017 16:37:51 +0100
+
+univention-self-service (2.0.9-3) unstable; urgency=medium
+
+  * Bug #43528: Adjust styling of elements + fix typo
+
+ -- Alexander Kläser <klaeser@univention.de>  Fri, 10 Mar 2017 13:22:01 +0100
+
+univention-self-service (2.0.9-2) unstable; urgency=medium
+
+  * Bug #43509: dijitDisplayNone → dijitDisplayNone
+
+ -- Florian Best <best@univention.de>  Thu, 09 Mar 2017 14:57:08 +0100
+
+univention-self-service (2.0.9-1) unstable; urgency=medium
+
+  * Bug #43565: remove unused self-service things from UCS 4.1
+
+ -- Florian Best <best@univention.de>  Thu, 09 Mar 2017 11:56:12 +0100
+
+univention-self-service (2.0.8-1) unstable; urgency=medium
+
+  * Bug #42132: remove module from being visible in UMC
+
+ -- Florian Best <best@univention.de>  Wed, 08 Mar 2017 16:44:43 +0100
+
+univention-self-service (2.0.7-1) unstable; urgency=medium
+
+  * Bug #42174: fix adding Forgot your password link
+
+ -- Florian Best <best@univention.de>  Tue, 07 Mar 2017 16:59:58 +0100
+
+univention-self-service (2.0.6-2) unstable; urgency=medium
+
+  * Bug #42263: Adjust menu structure
+
+ -- Alexander Kläser <klaeser@univention.de>  Tue, 07 Mar 2017 15:55:22 +0100
+
+univention-self-service (2.0.6-1) unstable; urgency=medium
+
+  * Bug #42132: revert joinscript restrictions
+
+ -- Florian Best <best@univention.de>  Tue, 07 Mar 2017 12:53:17 +0100
+
+univention-self-service (2.0.5-5) unstable; urgency=medium
+
+  * Bug #42132: fix dependency
+
+ -- Florian Best <best@univention.de>  Mon, 06 Mar 2017 15:02:11 +0100
+
+univention-self-service (2.0.5-4) unstable; urgency=medium
+
+  * Bug #42267: Fix l10n integration
+
+ -- Alexander Kläser <klaeser@univention.de>  Sat, 04 Mar 2017 18:22:44 +0100
+
+univention-self-service (2.0.5-3) unstable; urgency=medium
+
+  * Bug #42174: adjust dependencies
+
+ -- Alexander Kläser <klaeser@univention.de>  Fri, 03 Mar 2017 16:22:58 +0100
+
+univention-self-service (2.0.5-2) unstable; urgency=medium
+
+  * Bug #42174: Fix "Forgot your password?" link
+
+ -- Alexander Kläser <klaeser@univention.de>  Fri, 03 Mar 2017 10:09:14 +0100
+
+univention-self-service (2.0.5-1) unstable; urgency=medium
+
+  * Bug #42267: move menu entries into JavaScript hook module
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 23 Feb 2017 17:09:09 +0100
+
+univention-self-service (2.0.4-10) unstable; urgency=medium
+
+  * Bug #42263: set default page if no/invalid page is requested. Changed hash
+    query handling.
+
+ -- Jürn Brodersen <brodersen@univention.de>  Thu, 23 Feb 2017 16:15:15 +0100
+
+univention-self-service (2.0.4-9) unstable; urgency=medium
+
+  * Bug #42263: cleanup menu entries
+
+ -- Alexander Kläser <klaeser@univention.de>  Thu, 23 Feb 2017 03:39:56 +0100
+
+univention-self-service (2.0.4-8) unstable; urgency=medium
+
+  * Bug #42267: remove obsolete script
+
+ -- Eduard Mai <mai@univention.de>  Wed, 22 Feb 2017 17:13:34 +0100
+
+univention-self-service (2.0.4-7) unstable; urgency=medium
+
+  * Bug #42263: updated links in email
+
+ -- Jürn Brodersen <brodersen@univention.de>  Wed, 22 Feb 2017 14:38:18 +0100
+
+univention-self-service (2.0.4-6) unstable; urgency=medium
+
+  * Bug #42263: show all possible renew options 
+
+ -- Jürn Brodersen <brodersen@univention.de>  Wed, 22 Feb 2017 14:25:15 +0100
+
+univention-self-service (2.0.4-5) unstable; urgency=medium
+
+  * Bug #42263: remove call to app.registerOnStartup()
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 22 Feb 2017 14:14:59 +0100
+
+univention-self-service (2.0.4-4) unstable; urgency=medium
+
+  * Bug #42263: adjust menu reference
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 22 Feb 2017 13:59:34 +0100
+
+univention-self-service (2.0.4-3) unstable; urgency=medium
+
+  * Bug #42267: code cleanup
+
+ -- Jürn Brodersen <brodersen@univention.de>  Wed, 22 Feb 2017 13:45:39 +0100
+
+univention-self-service (2.0.4-2) unstable; urgency=medium
+
+  * Bug #42263: use umc/widgets/Menu instead of umc/Menu
+
+ -- Alexander Kläser <klaeser@univention.de>  Wed, 22 Feb 2017 13:19:34 +0100
+
+univention-self-service (2.0.4-1) unstable; urgency=medium
+
+  * Bug #43565: proxy all requests to the UCR set self-service/backend-server
+
+ -- Florian Best <best@univention.de>  Wed, 22 Feb 2017 12:57:33 +0100
+
+univention-self-service (2.0.3-5) unstable; urgency=medium
+
+  * Bug #42267: remove password change from frontend 
+
+ -- Jürn Brodersen <brodersen@univention.de>  Wed, 22 Feb 2017 12:48:48 +0100
+
+univention-self-service (2.0.3-4) unstable; urgency=medium
+
+  * Bug #42267: entries.json not needed anymore -> removed 
+
+ -- Jürn Brodersen <brodersen@univention.de>  Wed, 22 Feb 2017 12:24:40 +0100
+
+univention-self-service (2.0.3-3) unstable; urgency=medium
+
+  * Bug #42267: removed navigation bubbles 
+
+ -- Jürn Brodersen <brodersen@univention.de>  Wed, 22 Feb 2017 11:59:55 +0100
+
+univention-self-service (2.0.3-2) unstable; urgency=medium
+
+  * Bug #42267: multiple usability improvements 
+
+ -- Jürn Brodersen <brodersen@univention.de>  Wed, 22 Feb 2017 11:22:36 +0100
+
+univention-self-service (2.0.3-1) unstable; urgency=medium
+
+  * Bug #42267: enhance html structure
+
+ -- Florian Best <best@univention.de>  Tue, 14 Feb 2017 17:28:24 +0100
+
+univention-self-service (2.0.2-3) unstable; urgency=medium
+
+  * Bug 42267: adjusted frontend for new design
+
+ -- Eduard Mai <mai@univention.de>  Tue, 07 Feb 2017 14:26:58 +0100
+
+univention-self-service (2.0.2-2) unstable; urgency=medium
+
+  * Bug #42267: version bump
+
+ -- Florian Best <best@univention.de>  Tue, 07 Feb 2017 12:21:38 +0100
+
+univention-self-service (2.0.2-1) unstable; urgency=medium
+
+  * Bug #42267: transition to univention-web and UMC module
+
+ -- Eduard Mai <mai@univention.de>  Fri, 03 Feb 2017 18:19:19 +0100
+
+univention-self-service (2.0.1-1) unstable; urgency=medium
+
+  * Bug #42228: ucs-overview → univention
+
+ -- Florian Best <best@univention.de>  Thu, 02 Feb 2017 21:16:32 +0100
+
+univention-self-service (2.0.0-2) unstable; urgency=medium
+
+  * Bug #42132: replace WSGI parts of self service with UMC
+
+ -- Florian Best <best@univention.de>  Thu, 25 Aug 2016 17:08:50 +0200
+
+univention-self-service (2.0.0-1) unstable; urgency=medium
+
+  * Bug #41963: UCS-4.2 version bump
+
+ -- Philipp Hahn <hahn@univention.de>  Fri, 12 Aug 2016 13:56:19 +0200
+
+univention-self-service (1.0.3-21) unstable; urgency=medium
+
+  * Bug #40799: don't fork module process per request
+
+ -- Florian Best <best@univention.de>  Tue, 01 Mar 2016 09:45:51 +0100
+
+univention-self-service (1.0.3-20) unstable; urgency=low
+
+  * Bug #40582: make join script die on error
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 05 Feb 2016 13:37:48 +0100
+
+univention-self-service (1.0.3-19) unstable; urgency=low
+
+  * Bug #40582: create ldap secret file on update
+  * don't raise join script version
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 05 Feb 2016 12:58:16 +0100
+
+univention-self-service (1.0.3-18) unstable; urgency=low
+
+  * move creation of ldap secret file to join script (Bug #40582)
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 05 Feb 2016 11:28:23 +0100
+
+univention-self-service (1.0.3-17) unstable; urgency=low
+
+  * revert r67025 / 1.0.3-15. Error is in VM image, not this (Bug #40158)
+
+ -- Daniel Troeder <troeder@univention.de>  Thu, 04 Feb 2016 16:32:59 +0100
+
+univention-self-service (1.0.3-16) unstable; urgency=medium
+
+  * Bug #40581: fix error handling
+
+ -- Florian Best <best@univention.de>  Thu, 04 Feb 2016 13:02:06 +0100
+
+univention-self-service (1.0.3-15) unstable; urgency=low
+
+  * fallback to HTTP on SSLError if connection is local (Bug #40158)
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 27 Jan 2016 17:23:39 +0100
+
+univention-self-service (1.0.3-14) unstable; urgency=low
+
+  * cleanup udm_errors handling (Bug #40433)
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 15 Jan 2016 11:48:35 +0100
+
+univention-self-service (1.0.3-13) unstable; urgency=low
+
+  * fix passwordreset crashing on udm_errors.pwQuality (Bug #40433)
+
+ -- Daniel Troeder <troeder@univention.de>  Thu, 14 Jan 2016 19:28:24 +0100
+
+univention-self-service (1.0.3-12) unstable; urgency=low
+
+  * Bug #40107: revert r66134 (1.0.3-11), allowing ports and paths
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 08 Dec 2015 11:26:38 +0100
+
+univention-self-service (1.0.3-11) unstable; urgency=low
+
+  * check validity of hostname in umc/self-service/passwordreset/email/webserver_address
+    Bug #40107
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 08 Dec 2015 06:16:59 +0100
+
+univention-self-service (1.0.3-10) unstable; urgency=low
+
+  * better wording in error message (Bug #39720)
+  * fix return with bad email address in email2username()
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 07 Dec 2015 17:40:02 +0100
+
+univention-self-service (1.0.3-9) unstable; urgency=low
+
+  * Bug #39720: safer error handling,
+  * rename umc/self-service/passwordreset/limit/.*/min
+    to umc/self-service/passwordreset/limit/.*/minute
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 07 Dec 2015 14:42:26 +0100
+
+univention-self-service (1.0.3-8) unstable; urgency=low
+
+  * ignore deactivated limit (Bug #39720)
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 07 Dec 2015 11:41:38 +0100
+
+univention-self-service (1.0.3-7) unstable; urgency=low
+
+  * be more explicit about the UCRV default value when unset (Bug #39720)
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 07 Dec 2015 10:28:46 +0100
+
+univention-self-service (1.0.3-6) unstable; urgency=medium
+
+  * Bug #39939: prevent guessing of usernames
+
+ -- Florian Best <best@univention.de>  Fri, 04 Dec 2015 15:52:50 +0100
+
+univention-self-service (1.0.3-5) unstable; urgency=low
+
+  * restart apache in postrm (Bug #40061) 
+
+ -- Felix Botner <botner@univention.de>  Fri, 04 Dec 2015 15:13:19 +0100
+
+univention-self-service (1.0.3-4) unstable; urgency=low
+
+  * make hostname used in email configurable (Bug #40107)
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 04 Dec 2015 11:20:46 +0100
+
+univention-self-service (1.0.3-3) unstable; urgency=low
+
+  * Bug #39981: Add ucslint exceptions for dojox
+
+ -- Alexander Kramer <kramer@univention.de>  Thu, 03 Dec 2015 11:24:39 +0100
+
+univention-self-service (1.0.3-2) unstable; urgency=low
+
+  * Bug #39981: Use dojo encode to avert working HTML inside urlLabel
+
+ -- Alexander Kramer <kramer@univention.de>  Thu, 03 Dec 2015 11:11:26 +0100
+
+univention-self-service (1.0.3-1) unstable; urgency=low
+
+  * return waiting time if request limit is reached (Bug #39720)
+  * use UMC LDAP connection and error handling
+  * rename keys for total request count and email2username to prevent clash
+    with username
+  * fix socket path in univention-self-service-request-count forgotten in
+    previous commit
+  * mind memcached maximum key length
+  * cleaner LDAP filter handling
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 02 Dec 2015 14:35:48 +0100
+
+univention-self-service (1.0.2-37) unstable; urgency=low
+
+  * run memcached as non-privileged user (Bug #39720)
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 02 Dec 2015 12:03:39 +0100
+
+univention-self-service (1.0.2-36) unstable; urgency=low
+
+  * Bug #39981: Decode query string for redirect
+
+ -- Alexander Kramer <kramer@univention.de>  Wed, 02 Dec 2015 11:24:04 +0100
+
+univention-self-service (1.0.2-35) unstable; urgency=low
+
+  * use explode_dn instead of str.partition, remove unused code (Bug #40049)
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 02 Dec 2015 09:55:15 +0100
+
+univention-self-service (1.0.2-34) unstable; urgency=low
+
+  * make error handling more robust (Bug #40049)
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 30 Nov 2015 12:30:28 +0100
+
+univention-self-service (1.0.2-33) unstable; urgency=low
+
+  * rename UCRV from umc/self-service/passwordreset/email/from_addr
+    to umc/self-service/passwordreset/email/sender_address
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 25 Nov 2015 15:09:09 +0100
+
+univention-self-service (1.0.2-32) unstable; urgency=low
+
+  * Allow email address instead of username (Bug #40049).
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 25 Nov 2015 15:01:53 +0100
+
+univention-self-service (1.0.2-31) unstable; urgency=low
+
+  * Make token-request mail sender address changeable with UCRV
+    umc/self-service/passwordreset/email/from_addr (Bug #40048).
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 25 Nov 2015 12:09:04 +0100
+
+univention-self-service (1.0.2-30) unstable; urgency=low
+
+  * protect all exported functions against username scanning (Bug #39939)
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 25 Nov 2015 11:42:41 +0100
+
+univention-self-service (1.0.2-29) unstable; urgency=low
+
+  * Do not reveal unknown usernames (Bug #39939).
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 25 Nov 2015 10:39:33 +0100
+
+univention-self-service (1.0.2-28) unstable; urgency=low
+
+  * fix bad comparison, raise request limits (Bug #39720)
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 23 Nov 2015 10:00:51 +0100
+
+univention-self-service (1.0.2-27) unstable; urgency=low
+
+  * Add protection against denial of service attacks against server and
+    users. Adds UCRVs umc/self-service/passwordreset/limit/.* (Bug #39720)
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 20 Nov 2015 15:29:40 +0100
+
+univention-self-service (1.0.2-26) unstable; urgency=low
+
+  * completely remove overview links when uninstalling (Bug #40033)
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 20 Nov 2015 15:14:51 +0100
+
+univention-self-service (1.0.2-25) unstable; urgency=low
+
+  * Bug #39981: Another regex improvment for redirect url
+
+ -- Alexander Kramer <kramer@univention.de>  Thu, 19 Nov 2015 13:48:48 +0100
+
+univention-self-service (1.0.2-24) unstable; urgency=low
+
+  * Bug #39981: Improved regex for redirect url
+
+ -- Alexander Kramer <kramer@univention.de>  Thu, 19 Nov 2015 09:26:19 +0100
+
+univention-self-service (1.0.2-23) unstable; urgency=low
+
+  * Bug #39981: Adapted regex for redirect url
+
+ -- Alexander Kramer <kramer@univention.de>  Wed, 18 Nov 2015 12:05:42 +0100
+
+univention-self-service (1.0.2-22) unstable; urgency=low
+
+  * Add unjoin scipt copy to prerm scripts (Bug #39980)
+  * fix unjoin scipt, fix unjoin scipt numbering
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 17 Nov 2015 15:16:18 +0100
+
+univention-self-service (1.0.2-21) unstable; urgency=low
+
+  * Do not write token to logfile (Bug #39996)
+  * fix typos and translations
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 17 Nov 2015 13:19:22 +0100
+
+univention-self-service (1.0.2-20) unstable; urgency=low
+
+  * Fix typo in UCRV description (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 16 Nov 2015 17:33:49 +0100
+
+univention-self-service (1.0.2-19) unstable; urgency=low
+
+  * make text message sending code run an external executable (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 16 Nov 2015 16:10:46 +0100
+
+univention-self-service (1.0.2-18) unstable; urgency=low
+
+  * Bug #37890: fix typo, add description for UCRV
+    umc/self-service/passwordreset/external/udm_property
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 16 Nov 2015 13:54:33 +0100
+
+univention-self-service (1.0.2-17) unstable; urgency=low
+
+  * move join script calling to bottom of postinst (Bug #37890)
+  * remove dependency for PostgreSQL of specific version
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 16 Nov 2015 13:21:56 +0100
+
+univention-self-service (1.0.2-16) unstable; urgency=low
+
+  * Bug #39936: Adapted Textbox reset
+
+ -- Alexander Kramer <kramer@univention.de>  Mon, 16 Nov 2015 12:14:53 +0100
+
+univention-self-service (1.0.2-15) unstable; urgency=low
+
+  * Bug #39936: Hide and display request token button
+
+ -- Alexander Kramer <kramer@univention.de>  Mon, 16 Nov 2015 10:21:41 +0100
+
+univention-self-service (1.0.2-14) unstable; urgency=low
+
+  * better logging, set app release date (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 16 Nov 2015 10:05:56 +0100
+
+univention-self-service (1.0.2-13) unstable; urgency=low
+
+  * Bug #39936: Passwordreset rename button and hide it
+
+ -- Alexander Kramer <kramer@univention.de>  Mon, 16 Nov 2015 09:52:17 +0100
+
+univention-self-service (1.0.2-12) unstable; urgency=low
+
+  * fix blacklisted groups detection (Bug #37890)
+  * simplify mobile number mangling
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 16 Nov 2015 09:43:50 +0100
+
+univention-self-service (1.0.2-11) unstable; urgency=low
+
+  * Bug #39936: Rename button and hide it if request successful
+
+ -- Alexander Kramer <kramer@univention.de>  Mon, 16 Nov 2015 09:31:00 +0100
+
+univention-self-service (1.0.2-10) unstable; urgency=low
+
+  * Bug #39936: Fix wording self service UI
+
+ -- Alexander Kramer <kramer@univention.de>  Mon, 16 Nov 2015 09:03:14 +0100
+
+univention-self-service (1.0.2-9) unstable; urgency=low
+
+  * support for sending text messages through Sipgate (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 16 Nov 2015 01:16:14 +0100
+
+univention-self-service (1.0.2-8) unstable; urgency=low
+
+  * add scipt to en/disable modules (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 13 Nov 2015 13:21:07 +0100
+
+univention-self-service (1.0.2-7) unstable; urgency=low
+
+  * Bug #39597: Fill passwordreset by url query string
+
+ -- Alexander Kramer <kramer@univention.de>  Fri, 13 Nov 2015 10:31:53 +0100
+
+univention-self-service (1.0.2-6) unstable; urgency=low
+
+  * Bug #39597: Switch between passwordreset steps
+
+ -- Alexander Kramer <kramer@univention.de>  Fri, 13 Nov 2015 09:00:40 +0100
+
+univention-self-service (1.0.2-5) unstable; urgency=low
+
+  * Bug #39597: Adapted wording and translation
+
+ -- Alexander Kramer <kramer@univention.de>  Fri, 13 Nov 2015 07:46:04 +0100
+
+univention-self-service (1.0.2-4) unstable; urgency=low
+
+  * Bug #39597: Adapted style and labels for input fields
+    * Changed labels and long desc for the overview items
+
+ -- Alexander Kramer <kramer@univention.de>  Wed, 11 Nov 2015 12:43:16 +0100
+
+univention-self-service (1.0.2-3) unstable; urgency=low
+
+  * change labels and error msg (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 10 Nov 2015 15:38:25 +0100
+
+univention-self-service (1.0.2-2) unstable; urgency=low
+
+  * Bug #39597: Added frontend validation for mail address
+    * Always display inputs for mobile and email
+
+ -- Alexander Kramer <kramer@univention.de>  Tue, 10 Nov 2015 13:01:40 +0100
+
+univention-self-service (1.0.2-1) unstable; urgency=medium
+
+  * Bug #39834: move conflicting apache config directive into directory
+
+ -- Florian Best <best@univention.de>  Tue, 10 Nov 2015 10:37:30 +0100
+
+univention-self-service (1.0.1-14) unstable; urgency=low
+
+  * raise Exception if user has not registered any contact for password reset
+    (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 10 Nov 2015 10:03:10 +0100
+
+univention-self-service (1.0.1-13) unstable; urgency=low
+
+  * Bug #39597: Finsihed setcontactinformation
+    * Adapted translation
+    * Imrpoved css styling
+    * Added regex to avoid redirect to absolute paths
+
+ -- Alexander Kramer <kramer@univention.de>  Tue, 10 Nov 2015 09:58:13 +0100
+
+univention-self-service (1.0.1-12) unstable; urgency=low
+
+  * Bug #39597: Extended some links by the language query string
+
+ -- Alexander Kramer <kramer@univention.de>  Mon, 09 Nov 2015 14:41:17 +0100
+
+univention-self-service (1.0.1-11) unstable; urgency=low
+
+  * Bug #39597: include dojo.hash to reload the page on hashChanged
+    Add setContact to setcontactinformation
+    Adapted translations
+
+ -- Alexander Kramer <kramer@univention.de>  Mon, 09 Nov 2015 13:29:50 +0100
+
+univention-self-service (1.0.1-10) unstable; urgency=low
+
+  * Bug #39597: removed fuzzy in po file
+
+ -- Johannes Keiser <keiser@univention.de>  Fri, 06 Nov 2015 17:20:22 +0100
+
+univention-self-service (1.0.1-9) unstable; urgency=low
+
+  * Bug #39597: added site where the user can set his contact information
+
+ -- Johannes Keiser <keiser@univention.de>  Fri, 06 Nov 2015 17:11:09 +0100
+
+univention-self-service (1.0.1-8) unstable; urgency=low
+
+  * Reset pwdChangeNextLogin after password change (Bug #37890)
+  * Don't catch unknown exceptions
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 06 Nov 2015 14:47:31 +0100
+
+univention-self-service (1.0.1-7) unstable; urgency=medium
+
+  * Bug #39682: fix responses in error cases
+
+ -- Florian Best <best@univention.de>  Fri, 06 Nov 2015 13:56:43 +0100
+
+univention-self-service (1.0.1-6) unstable; urgency=low
+
+  * Bug #39597: Added an overview page if no hash is provided
+    Also moved some logic into a shared lib file
+
+ -- Alexander Kramer <kramer@univention.de>  Fri, 06 Nov 2015 12:10:54 +0100
+
+univention-self-service (1.0.1-5) unstable; urgency=low
+
+  * add UMC function passwordreset/get_contact (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Thu, 05 Nov 2015 15:30:06 +0100
+
+univention-self-service (1.0.1-4) unstable; urgency=low
+
+  * Bug #39597: adapted UI for password reset
+
+ -- Johannes Keiser <keiser@univention.de>  Thu, 05 Nov 2015 14:54:38 +0100
+
+univention-self-service (1.0.1-3) unstable; urgency=low
+
+  * fix gettext domain (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 04 Nov 2015 16:46:25 +0100
+
+univention-self-service (1.0.1-2) unstable; urgency=low
+
+  * get_reset_methods() returns localized label (Bug #37890)
+  * add some translations
+  * remove deprecated dependency
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 04 Nov 2015 13:10:54 +0100
+
+univention-self-service (1.0.1-1) unstable; urgency=medium
+
+  * Bump version for UCS 4.1 (Bug #39729)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Tue, 03 Nov 2015 22:17:57 +0100
+
+univention-self-service (0.0.0-26) unstable; urgency=low
+
+  * Bug #37890: Remove debug messages
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 03 Nov 2015 15:54:54 +0100
+
+univention-self-service (0.0.0-25) unstable; urgency=low
+
+  * Bug #39597: Improved UI error handling
+
+ -- Alexander Kramer <kramer@univention.de>  Mon, 02 Nov 2015 14:37:29 +0100
+
+univention-self-service (0.0.0-24) unstable; urgency=low
+
+  * Bug #39597: Adapted Radiobutton for passwordreset UI
+
+ -- Alexander Kramer <kramer@univention.de>  Mon, 02 Nov 2015 13:22:05 +0100
+
+univention-self-service (0.0.0-23) unstable; urgency=low
+
+  * Bug #39597: Started UI for passwordreset
+
+ -- Alexander Kramer <kramer@univention.de>  Fri, 30 Oct 2015 17:36:12 +0100
+
+univention-self-service (0.0.0-22) unstable; urgency=low
+
+  * Bug #39597: Adapted conffile for apache and UI for passwordchange
+
+ -- Alexander Kramer <kramer@univention.de>  Fri, 30 Oct 2015 12:58:03 +0100
+
+univention-self-service (0.0.0-21) unstable; urgency=low
+
+  * Bug #39597: Improved UI for passwordchange
+
+ -- Alexander Kramer <kramer@univention.de>  Fri, 30 Oct 2015 10:20:50 +0100
+
+univention-self-service (0.0.0-20) unstable; urgency=low
+
+  * Bug #39597: Adapted apache and cherrypy config
+
+ -- Alexander Kramer <kramer@univention.de>  Thu, 29 Oct 2015 14:55:35 +0100
+
+univention-self-service (0.0.0-19) unstable; urgency=low
+
+  * Bug #39597: Adapted install and postinst file
+
+ -- Alexander Kramer <kramer@univention.de>  Thu, 29 Oct 2015 09:53:31 +0100
+
+univention-self-service (0.0.0-18) unstable; urgency=low
+
+  * Bug #39597: Restructuring package
+
+ -- Alexander Kramer <kramer@univention.de>  Thu, 29 Oct 2015 09:38:06 +0100
+
+univention-self-service (0.0.0-17) unstable; urgency=low
+
+  * cleanup after uninstalling (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 23 Oct 2015 15:41:18 +0200
+
+univention-self-service (0.0.0-16) unstable; urgency=low
+
+  * always use localhost as server, packaging fixes (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Fri, 23 Oct 2015 12:36:01 +0200
+
+univention-self-service (0.0.0-15) unstable; urgency=low
+
+  * reduce to 1 app (Bug #37890)
+  * offer App only on DC master and DC backup
+
+ -- Daniel Troeder <troeder@univention.de>  Thu, 22 Oct 2015 13:12:42 +0200
+
+univention-self-service (0.0.0-14) unstable; urgency=low
+
+  * use Univention namespace in LDAP schema (Bug #37890)
+  * split and rename packages for frontend and backend
+  * split join scripts
+  * add single-server meta package
+  * add appcenter data
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 21 Oct 2015 15:14:56 +0200
+
+univention-self-service (0.0.0-13) unstable; urgency=low
+
+  * remove work around #39599 (Bug #37890)
+  * work with all kinds of resonses from UMC replies: messages are passed
+    completely from backend to frontend
+  * make API similiar to UMC API (/result/message/)
+  * add username to set_password() arguments
+  * cherrypy log settings
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 21 Oct 2015 13:41:48 +0200
+
+univention-self-service (0.0.0-12) unstable; urgency=low
+
+  * work around #39599 (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 20 Oct 2015 11:37:39 +0200
+
+univention-self-service (0.0.0-11) unstable; urgency=low
+
+  * fix change password UMC call (Bug #37890)
+  * better Exception handling
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 20 Oct 2015 11:10:12 +0200
+
+univention-self-service (0.0.0-10) unstable; urgency=low
+
+  * No central loading for plugins frontends any more, they are separate WSGI
+    scripts now (Bug #37890).
+  * add password self service package
+  * packaging adjustments
+  * static files are served by apache
+  * integration with ucs-overwiew
+  * UMC policy creation
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 19 Oct 2015 11:08:51 +0200
+
+univention-self-service (0.0.0-9) unstable; urgency=low
+
+  * add password self service plugin (Bug #37890)
+  * modify framework to work with multiple WSGI scripts (Bug #37890)
+  * add example HTML/static code to verify plugin loading & URLs/paths
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 14 Oct 2015 23:33:37 +0200
+
+univention-self-service (0.0.0-8) unstable; urgency=low
+
+  * refactor common UDM/LDAP code (Bug #37890)
+  * allow to delete contact data
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 14 Oct 2015 13:37:18 +0200
+
+univention-self-service (0.0.0-7) unstable; urgency=low
+
+  * add support to run external sending plaugin (Bug #37890)
+  * sort UCRs into correct files
+  * add UCRV to choose backend server
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 13 Oct 2015 17:26:18 +0200
+
+univention-self-service (0.0.0-6) unstable; urgency=low
+
+  * use extended attributes for pasword recovery contacts (Bug #37890)
+  * add translations
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 13 Oct 2015 08:49:50 +0200
+
+univention-self-service (0.0.0-5) unstable; urgency=low
+
+  * make token sending code to plugins (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 12 Oct 2015 17:49:43 +0200
+
+univention-self-service (0.0.0-4) unstable; urgency=low
+
+  * Error messages reach UMC (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Wed, 30 Sep 2015 13:27:20 +0200
+
+univention-self-service (0.0.0-3) unstable; urgency=low
+
+  * Add black and white lists (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Tue, 29 Sep 2015 15:01:30 +0200
+
+univention-self-service (0.0.0-2) unstable; urgency=low
+
+  * Implement backend (Bug #37890)
+
+ -- Daniel Troeder <troeder@univention.de>  Mon, 28 Sep 2015 15:54:48 +0200
+
+univention-self-service (0.0.0-1) unstable; urgency=medium
+
+  * Bug #37890: Initial release
+
+ -- Florian Best <best@univention.de>  Thu, 17 Sep 2015 20:56:48 +0200

@@ -1,0 +1,279 @@
+#!/usr/bin/python2.7
+# -*- coding: utf-8 -*-
+#
+"""Univention Directory Manager command line server"""
+#
+# Copyright 2004-2017 Univention GmbH
+#
+# http://www.univention.de/
+#
+# All rights reserved.
+#
+# The source code of this program is made available
+# under the terms of the GNU Affero General Public License version 3
+# (GNU AGPL V3) as published by the Free Software Foundation.
+#
+# Binary versions of this program provided by Univention to you as
+# well as other copyrighted, protected or trademarked materials like
+# Logos, graphics, fonts, specific documentations and configurations,
+# cryptographic keys etc. are subject to a license agreement between
+# you and Univention and not subject to the GNU AGPL V3.
+#
+# In the case you use this program under the terms of the GNU AGPL V3,
+# the program is provided in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public
+# License with the Debian GNU/Linux or Univention distribution in file
+# /usr/share/common-licenses/AGPL-3; if not, see
+# <http://www.gnu.org/licenses/>.
+
+import SocketServer
+import socket
+from select import select
+import os
+import ast
+import sys
+import errno
+import traceback
+from univention.config_registry import ConfigRegistry
+import univention.debug as ud
+import univention.admincli.adduser
+import univention.admincli.admin
+import univention.admincli.passwd
+import signal
+from argparse import ArgumentParser
+try:
+	import univention.admincli.license_check
+	licenseImportError = False
+except ImportError:
+	licenseImportError = True
+
+logfile = ''
+
+
+class MyRequestHandler(SocketServer.BaseRequestHandler):
+
+	"""Handle request on listeneing socket to open new connection."""
+
+	def handle(self):
+		ud.debug(ud.ADMIN, ud.INFO, 'daemon [%s] new connection [%s]' % (os.getppid(), os.getpid()))
+		sarglist = ''
+		while True:
+			buf = self.request.recv(1024)
+			if buf[-1] == '\0':
+				buf = buf[:-1]
+				sarglist += buf
+				break
+			else:
+				sarglist += buf
+		doit(sarglist, self.request)
+		ud.debug(ud.ADMIN, ud.INFO, 'daemon [%s] connection closed [%s]' % (os.getppid(), os.getpid()))
+
+	def finish(self):
+		pass
+
+
+class ForkingTCPServer(SocketServer.ForkingTCPServer):
+
+	"""UDM server listening on UNIX socket."""
+	address_family = socket.AF_UNIX
+	allow_reuse_address = 1
+
+	def server_bind(self):
+		SocketServer.TCPServer.server_bind(self)
+		_host, port = self.socket.getsockname()[:2]
+		self.server_name = 'localhost'  # socket.getfqdn(host)
+		self.server_port = port
+
+
+def server_main(args):
+	"""UDM command line server."""
+
+	socket_path = args.socket
+	socket_dir = os.path.dirname(socket_path)
+
+	global logfile
+	logfile = args.logfile
+	ud.init(logfile, ud.FLUSH, ud.NO_FUNCTION)
+
+	runfilename = '%s.run' % socket_path
+	if os.path.isfile(runfilename):
+		try:
+			with open(runfilename, 'r') as runfile:
+				line = runfile.readline().strip()
+				pid = int(line)
+				os.kill(pid, signal.SIGCONT)
+		except (ValueError, OSError):
+			pid = 0
+		if not pid:  # no pid found or no server running
+			os.unlink(socket_path)
+			os.unlink(runfilename)
+			os.rmdir(socket_dir)
+		else:
+			print >> sys.stderr, 'E: Server already running [Pid: %s]' % pid
+			sys.exit(1)
+
+	ud.set_level(ud.ADMIN, args.debug_level)
+	ud.debug(ud.ADMIN, ud.INFO, 'daemon [%s] forked to background' % os.getpid())
+
+	try:
+		os.mkdir(socket_dir)
+		os.chmod(socket_dir, 0o700)
+	except OSError as ex:
+		if ex.errno != errno.EEXIST:
+			print >> sys.stderr, 'E: %s %s' % (socket_dir, ex)
+			sys.exit(1)
+		else:
+			print >> sys.stderr, 'E: socket directory exists (%s)' % socket_dir
+
+	timeout = args.timeout
+	if timeout:
+		if int(timeout) > 2147483647:
+			timeout = 2147483647
+	else:
+		timeout = 300
+		ud.debug(ud.ADMIN, ud.WARN, 'daemon [%s] baseconfig key directory/manager/cmd/timeout not set, setting to default (%s seconds)' % (os.getpid(), timeout))
+
+	try:
+		sock = ForkingTCPServer(socket_path, MyRequestHandler)
+		os.chmod(socket_path, 0o600)
+	except:
+		print >> sys.stderr, 'E: Failed creating socket (%s). Daemon stopped.' % socket_path
+		ud.debug(ud.ADMIN, ud.ERROR, 'daemon [%s] Failed creating socket (%s). Daemon stopped.' % (os.getpid(), socket_path))
+		sys.exit(1)
+
+	# sock.listen(2)
+	try:
+		runfile = open(runfilename, 'w')
+		runfile.write(str(os.getpid()))
+		runfile.close()
+	except IOError:
+		print >> sys.stderr, 'E: Can`t write runfile'
+
+	try:
+		while True:
+			rlist, _wlist, _xlist = select([sock], [], [], float(timeout))
+			for handler in rlist:
+				handler.handle_request()
+			if not rlist:
+				ud.debug(ud.ADMIN, ud.INFO, 'daemon [%s] stopped after %s seconds idle' % (os.getpid(), timeout))
+				sys.exit(0)
+
+	finally:
+		os.unlink(socket_path)
+		os.unlink(runfilename)
+		os.rmdir(socket_dir)
+		ud.exit()
+
+
+def doit(sarglist, conn):
+	"""Process single UDM request."""
+
+	def send_message(output):
+		"""Send answer back."""
+		back = repr(output)
+		conn.send(back + '\0')
+		conn.close()
+
+	global logfile
+	arglist = ast.literal_eval(sarglist)
+
+	next_is_logfile = False
+	secret = False
+	show_help = False
+	oldlogfile = logfile
+	for arg in arglist:
+		if next_is_logfile:
+			logfile = arg
+			next_is_logfile = False
+			continue
+		if arg.startswith('--logfile='):
+			logfile = arg[len('--logfile='):]
+		elif arg.startswith('--logfile'):
+			next_is_logfile = True
+		secret |= arg == '--binddn'
+		show_help |= arg in ('--help', '-h', '-?', '--version')
+
+	if not secret:
+		for filename in ('/etc/ldap.secret', '/etc/machine.secret'):
+			try:
+				open(filename, 'r').close()
+				secret = True
+				break
+			except IOError:
+				continue
+		else:
+			if not show_help:
+				send_message(["E: Permission denied, try --logfile, --binddn and --bindpwd"])
+				sys.exit(1)
+
+	if logfile != oldlogfile:
+		ud.exit()
+		ud.init(logfile, ud.FLUSH, ud.NO_FUNCTION)
+
+	cmdfile = os.path.basename(arglist[0])
+	try:
+		if cmdfile in ('univention-admin', 'univention-directory-manager', 'udm'):
+			ud.debug(ud.ADMIN, ud.PROCESS, 'daemon [%s] [%s] Calling univention-directory-manager' % (os.getppid(), os.getpid()))
+			ud.debug(ud.ADMIN, ud.ALL, 'daemon [%s] [%s] arglist: %s' % (os.getppid(), os.getpid(), arglist))
+			output = univention.admincli.admin.doit(arglist)
+		elif cmdfile == 'univention-passwd':
+			ud.debug(ud.ADMIN, ud.PROCESS, 'daemon [%s] [%s] Calling univention-passwd' % (os.getppid(), os.getpid()))
+			ud.debug(ud.ADMIN, ud.ALL, 'daemon [%s] [%s] arglist: %s' % (os.getppid(), os.getpid(), arglist))
+			output = univention.admincli.passwd.doit(arglist)
+		elif cmdfile == 'univention-license-check':
+			if licenseImportError:
+				output = ['The license check is disabled. You are using the GPL version without any support or maintenance by Univention.']
+			else:
+				ud.debug(ud.ADMIN, ud.PROCESS, 'daemon [%s] [%s] Calling univention-license-check' % (os.getppid(), os.getpid()))
+				ud.debug(ud.ADMIN, ud.ALL, 'daemon [%s] [%s] arglist: %s' % (os.getppid(), os.getpid(), arglist))
+				output = univention.admincli.license_check.doit(arglist)
+		else:
+			ud.debug(ud.ADMIN, ud.PROCESS, 'daemon [%s] [%s] Calling univention-adduser' % (os.getppid(), os.getpid()))
+			ud.debug(ud.ADMIN, ud.ALL, 'daemon [%s] [%s] arglist: %s' % (os.getppid(), os.getpid(), arglist))
+			output = univention.admincli.adduser.doit(arglist)
+	except:
+		ext, exv, extb = sys.exc_info()
+		output = traceback.format_exception(ext, exv, extb)
+		output = [line[:-1] for line in output]
+		output.append("OPERATION FAILED")
+
+	send_message(output)
+
+	if show_help and not secret:
+		ud.debug(ud.ADMIN, ud.INFO, 'daemon [%s] [%s] stopped, because User has no read/write permissions' % (os.getppid(), os.getpid()))
+		sys.exit(0)
+
+
+def main():
+	ucr = ConfigRegistry()
+	ucr.load()
+	debug_level = int(ucr.get('directory/manager/cmd/debug/level', 1))
+	timeout = int(ucr.get('directory/manager/cmd/timeout', 300))
+	default_socket_path = '/tmp/admincli_%d/sock' % os.getuid()
+
+	argparser = ArgumentParser()
+	argparser.add_argument('-n', dest='daemonize', action='store_false', default=True, help='Run in foreground without daemonizing')
+	argparser.add_argument('-L', dest='logfile', action='store', default='/var/log/univention/directory-manager-cmd.log', help='logfile: %(default)s')
+	argparser.add_argument('-d', dest='debug_level', action='store', type=int, default=debug_level, help='debug level: %(default)s')
+	argparser.add_argument('-t', dest='timeout', action='store', type=int, default=timeout, help='timeout: %(default)s')
+	argparser.add_argument('-s', dest='socket', action='store', default=default_socket_path)
+	args = argparser.parse_args()
+
+	if args.daemonize:
+		pid = os.fork()
+		if pid == 0:  # child
+			os.setsid()
+			server_main(args)
+			sys.exit(0)
+		else:  # parent
+			os.waitpid(pid, os.P_NOWAIT)
+	else:
+		server_main(args)
+
+
+if __name__ == "__main__":
+	main()

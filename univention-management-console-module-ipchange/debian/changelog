@@ -1,0 +1,101 @@
+univention-management-console-module-ipchange (5.0.0-1) unstable; urgency=medium
+
+  * Bug #41963: UCS-4.2 version bump
+
+ -- Philipp Hahn <hahn@univention.de>  Fri, 12 Aug 2016 13:56:44 +0200
+
+univention-management-console-module-ipchange (4.0.1-1) unstable; urgency=medium
+
+  * Also change the ucs-sso host record (Bug #39386)
+  * Bump version for UCS 4.1
+
+ -- Stefan Gohmann <gohmann@univention.de>  Thu, 08 Oct 2015 08:25:10 +0200
+
+univention-management-console-module-ipchange (3.0.1-1) unstable; urgency=medium
+
+  * Bug #35654: correctly initialize empty javascript UMC module definition
+
+ -- Florian Best <best@univention.de>  Mon, 10 Nov 2014 16:17:46 +0100
+
+univention-management-console-module-ipchange (3.0.0-3) unstable; urgency=low
+
+  * Bug #35145: remove module category as this module is only for backend purpose
+
+ -- Florian Best <best@univention.de>  Fri, 05 Sep 2014 13:45:53 +0200
+
+univention-management-console-module-ipchange (3.0.0-2) unstable; urgency=low
+
+  * Bug #35145: update copyrights
+
+ -- Florian Best <best@univention.de>  Fri, 29 Aug 2014 11:14:14 +0200
+
+univention-management-console-module-ipchange (3.0.0-1) unstable; urgency=low
+
+  * Bug #35145: Start UCS 4.0 development
+
+ -- Florian Best <best@univention.de>  Thu, 10 Jul 2014 17:45:26 +0200
+
+univention-management-console-module-ipchange (2.0.5-1) unstable; urgency=low
+
+  * Bug #32048: Add keywords to UMC module definition
+
+ -- Florian Best <best@univention.de>  Mon, 09 Sep 2013 13:27:52 +0200
+
+univention-management-console-module-ipchange (2.0.4-1) unstable; urgency=low
+
+  * actualiase forward zones first
+  * use new ip to determine reverse zone
+  (Bug #27937)
+
+ -- Lukas Walter <walter@univention.de>  Tue, 20 Nov 2012 14:53:29 +0100
+
+univention-management-console-module-ipchange (2.0.3-1) unstable; urgency=low
+
+  * use current ip instead of new one when adding new dns reverse zone
+    (Bug #27937)
+
+ -- Lukas Walter <walter@univention.de>  Fri, 02 Nov 2012 10:48:35 +0100
+
+univention-management-console-module-ipchange (2.0.2-1) unstable; urgency=low
+
+  * Remove old syntax definitions (Bug #27720)
+
+ -- Dirk Wiesenthal <wiesenthal@univention.de>  Tue, 16 Oct 2012 14:19:09 +0200
+
+univention-management-console-module-ipchange (2.0.1-1) unstable; urgency=low
+
+  * abort join script on failing udm call (Bug #27753)
+
+ -- Lukas Walter <walter@univention.de>  Wed, 10 Oct 2012 13:12:25 +0200
+
+univention-management-console-module-ipchange (2.0.0-1) unstable; urgency=low
+
+  * Build only for Python 2.6 (Bug #26852)
+  * Bump version for UCS 3.1 (Bug #27966)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Wed, 05 Sep 2012 09:27:37 +0200
+
+univention-management-console-module-ipchange (1.0.3-1) unstable; urgency=low
+
+  * created default umc policies for each computergroup (Bug #26786)
+
+ -- Florian Best <best@univention.de>  Thu, 14 Jun 2012 11:39:18 +0200
+
+univention-management-console-module-ipchange (1.0.2-1) unstable; urgency=low
+
+  * Save traceback in logfile (Bug #26416)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Fri, 23 Mar 2012 16:19:33 +0100
+
+univention-management-console-module-ipchange (1.0.1-1) unstable; urgency=low
+
+  * Change reverse zone and forward zone (Bug #26416)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Fri, 23 Mar 2012 11:10:08 +0100
+
+univention-management-console-module-ipchange (1.0.0-1) unstable; urgency=low
+
+  * Initial release (Bug #26416)
+
+ -- Stefan Gohmann <gohmann@univention.de>  Thu, 22 Mar 2012 20:34:59 +0100
+

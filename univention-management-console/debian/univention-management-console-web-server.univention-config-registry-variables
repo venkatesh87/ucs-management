@@ -1,0 +1,77 @@
+[umc/http/autostart]
+Description[de]=Die Variable konfiguriert den Startmodus des UMC-Webservers. Wird sie auf 'no' oder 'disabled' gesetzt, kann der Dienst nicht gestartet werden. Wird die auf 'manually' gesetzt, erfolgt kein automatischer Start zum Systemstart, der Dienst kann aber später gezielt gestartet werden.
+Description[en]=This variable configures the start mode of the UMC web server. If set to 'no' or 'disabled', the service cannot be started. If the variable is set to 'manually', the service isn't started during system boot, but can be enabled manually at a later point.
+Type=str
+Categories=management-umc
+
+[umc/http/port]
+Description[de]=Auf diesem Port wartet der UMC-Webserver auf Anfragen. Ist die Variable nicht gesetzt, gilt '8090'.
+Description[en]=The UMC web server is listening on this port. If the variable is unset, '8090' applies.
+Type=int
+Categories=management-umc
+
+[umc/http/interface]
+Description[de]=Auf diesem Netzwerk-Interface wartet der UMC-Webserver auf Anfragen. Ist die Variable nicht gesetzt, gilt '127.0.0.1'.
+Description[en]=The UMC web server is listening on this network interface. If the variable is unset, '127.0.0.1' applies.
+Type=str
+Categories=management-umc
+
+[umc/http/session/timeout]
+Description[de]=Nach diesem Zeitraum in Sekunden wird die Browser-Sitzung automatisch geschlossen und eine Neuanmeldung ist notwendig. Ist die Variable nicht gesetzt, gilt 300, also fünf Minuten.
+Description[en]=After this time period in seconds the browser session is automatically closed and a renewed login is required. If the variable is unset, 300 applies (i.e. five minutes).
+Type=int
+Categories=management-umc
+
+[umc/server/upload/min_free_space]
+Description[de]=Legt die minimale Größe (in KB) an freiem Festplattenspeicher fest, die notwendig ist um Dateien hochladen zu können. Ist die Variable nicht gesetzt, gilt 51200.
+Description[en]=Sets the minimum size of free disk space (in kb) which must be available to upload files. If the variable is unset, 51200 applies.
+Type=int
+Categories=management-umc
+
+[umc/http/maxthreads]
+Description[de]=Definiert die maximale Anzahl an offenen Anfragen, die der UMC-Web-Server parallel verarbeiten wird. Ist die Variable nicht gesetzt, gilt 35.
+Description[en]=Defines the maximum number of open request that the UMC web server will process in parallel. If the variable is unset, 35 applies.
+Type=int
+Categories=management-umc
+
+[umc/http/requestqueuesize]
+Description[de]=Definiert die Anzahl noch nicht akzeptierter Verbindungen, die der UMC-Web-Server zulässt bevor er neue Verbindungen zurückweist. Ist die Variable nicht gesetzt, gilt 100.
+Description[en]=Defines the number of unaccepted connections that the UMC web server will allow before refusing new connections. If the variable is unset, 100 applies.
+Type=int
+Categories=management-umc
+
+[umc/saml/idp-server]
+Description[de]=Definiert den SAML 2.0 Identity Provider, der vom UMC-Web-Server für Single sign on verwendet wird.
+Description[en]=Defines the SAML 2.0 identity provider which is used for single sign on by the UMC web server.
+Type=str
+Categories=management-umc,saml
+
+[umc/saml/sp-server]
+Description[de]=Definiert den SAML 2.0 Service Provider FQDN. Wenn die Variable nicht gesetzt ist wird der Rechnername und alle IP Adressen verwendet. 
+Description[en]=Defines the SAML 2.0 service provider fqdn. If the variable is unset, the fqdn of the UCS system and all IP addresses are used.
+Type=str
+Categories=management-umc,saml
+
+[umc/saml/grace_time]
+Description[de]=Definiert die nach Gültigkeitsende der SAML-Assertion akzeptierte Zeitabweichung (in Sekunden) für PAM und LDAP authentifizierung.
+Description[en]=Defines the accepted time difference (in seconds) of the SAML assertion validity time for PAM and LDAP authentication.
+Type=int
+Categories=management-umc,saml
+
+[umc/logout/location]
+Description[de]=Definiert den Pfad der Weiterleitung nach einem erfolgreichen Abmelden von UMC.
+Description[en]=Defines the redirection path after a successful logout from UMC.
+Type=str
+Categories=management-umc
+
+[umc/http/max_request_body_size]
+Description[de]=Definiert die maximale Größe einer HTTP-Anfrage an den UMC-Webserver in bytes (Standard: 104857600).
+Description[en]=Defines the maximum size in bytes of a HTTP request against the UMC-Webserver (default: 104857600).
+Type=int
+Categories=management-umc
+
+[umc/http/content-security-policy/.*]
+Description[en]=Defines the Content-Security-Policy header of all UMC HTTP responses. Possible subvariables are default-src, script-src, object-src, style-src, img-src, media-src, frame-src, child-src, font-src, connect-src, form-action, frame-ancestors.
+Description[de]=Definiert den Content-Security-Policy Header von allen UMC HTTP Antworten. Mögliche Untervariablen sind default-src, script-src, object-src, style-src, img-src, media-src, frame-src, child-src, font-src, connect-src, form-action, frame-ancestors.
+Type=str
+Categories=management-umc

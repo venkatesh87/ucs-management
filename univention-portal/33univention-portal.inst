@@ -1,0 +1,174 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+#
+# Univention Portal
+#  join script
+#
+# Copyright 2016-2017 Univention GmbH
+#
+# http://www.univention.de/
+#
+# All rights reserved.
+#
+# The source code of this program is made available
+# under the terms of the GNU Affero General Public License version 3
+# (GNU AGPL V3) as published by the Free Software Foundation.
+#
+# Binary versions of this program provided by Univention to you as
+# well as other copyrighted, protected or trademarked materials like
+# Logos, graphics, fonts, specific documentations and configurations,
+# cryptographic keys etc. are subject to a license agreement between
+# you and Univention and not subject to the GNU AGPL V3.
+#
+# In the case you use this program under the terms of the GNU AGPL V3,
+# the program is provided in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public
+# License with the Debian GNU/Linux or Univention distribution in file
+# /usr/share/common-licenses/AGPL-3; if not, see
+# <http://www.gnu.org/licenses/>.
+
+VERSION=4
+
+. /usr/share/univention-join/joinscripthelper.lib
+. /usr/share/univention-lib/umc.sh
+
+joinscript_init
+
+ldap_master="$(ucr get ldap/master)"
+ldap_master_port="$(ucr get ldap/master/port)"
+
+if ! nc -w 10 "$ldap_master" "${ldap_master_port:-7389}"; then
+	echo "LDAP master is not available. Please try again later."
+	die
+fi
+
+ldap_base="$(ucr get ldap/base)"
+hostname="$(ucr get hostname)"
+univention-directory-manager container/cn create "$@" --ignore_exists \
+	--position "cn=univention,$ldap_base" \
+	--set name=portal || die
+
+# create container for portal objects and portal entries
+univention-directory-manager settings/extended_attribute create "$@" --ignore_exists \
+	--position "cn=custom attributes,cn=univention,$ldap_base" \
+	--set name=portal \
+	--set shortDescription="Portal" \
+	--set syntax=Portals \
+	--set ldapMapping=univentionComputerPortal \
+	--set objectClass=univentionPortalComputer \
+	--set tabAdvanced=1 \
+	--set tabName="Portal" \
+	--set mayChange=1 \
+	--append module=computers/domaincontroller_master \
+	--append module=computers/domaincontroller_backup \
+	--append module=computers/domaincontroller_slave \
+	--append module=computers/memberserver || die
+
+ldap_hostdn="$(ucr get ldap/hostdn)"
+role="$(ucr get server/role)"
+
+# the following UDM objects need to be created only intially
+if [ "$role" = "domaincontroller_master" ]; then
+	# create domain-wide portal object for DC master/backup systems
+	univention-directory-manager settings/portal create "$@" --ignore_exists \
+		--position "cn=portal,cn=univention,$ldap_base" \
+		--set name=domain \
+		--append displayName='"en_US" "Univention Portal"' \
+		--append displayName='"de_DE" "Univention Portal"' \
+		--append displayName='"fr_FR" "Portail Univention"' \
+		--set showMenu=TRUE \
+		--set showSearch=TRUE \
+		--set showLogin=TRUE \
+		--set showApps=FALSE \
+		--set showServers=TRUE || die
+
+	# create link to UMC for domain-wide portal object
+	univention-directory-manager settings/portal_entry create "$@" --ignore_exists \
+		--position "cn=portal,cn=univention,$ldap_base" \
+		--set name=umc-domain \
+		--append displayName="\"en_US\" \"System and domain settings\"" \
+		--append displayName="\"de_DE\" \"System- und Domäneneinstellungen\"" \
+		--append displayName="\"fr_FR\" \"Réglages du système et du domaine\"" \
+		--append description="\"en_US\" \"Univention Management Console for admin­is­tra­ting the UCS domain and the local system\"" \
+		--append description="\"de_DE\" \"Univention Management Console zur Ver­wal­tung der UCS-Domäne und des lokalen Systems\"" \
+		--append description="\"fr_FR\" \"Console de gestion Univention pour admin­is­trer le domaine UCS et le système local\"" \
+		--append link=/univention/management/ \
+		--set category=admin \
+		--set authRestriction=anonymous \
+		--set icon="$(base64 /usr/share/univention-management-console-frontend/js/dijit/themes/umc/icons/scalable/univention-management-console.svg)" \
+		--set portal="cn=domain,cn=portal,cn=univention,$ldap_base" || die
+
+
+	# create portal object which acts as local start site on systems which are no DC master or backup
+	univention-directory-manager settings/portal create "$@" --ignore_exists \
+		--position "cn=portal,cn=univention,$ldap_base" \
+		--set name=local \
+		--append displayName='"en_US" "Startsite for {hostname}"' \
+		--append displayName='"de_DE" "Startseite für {hostname}"' \
+		--append displayName='"fr_FR" "page d'\''accueil pour {hostname}"' \
+		--set showMenu=TRUE \
+		--set showSearch=TRUE \
+		--set showLogin=TRUE \
+		--set showApps=TRUE \
+		--set showServers=TRUE || die
+
+	# create link to UMC for portal object of local start sites
+	univention-directory-manager settings/portal_entry create "$@" --ignore_exists \
+		--position "cn=portal,cn=univention,$ldap_base" \
+		--set name=umc-local \
+		--append displayName="\"en_US\" \"System settings\"" \
+		--append displayName="\"de_DE\" \"Systemeinstellungen\"" \
+		--append displayName="\"fr_FR\" \"Réglages du système\"" \
+		--append description="\"en_US\" \"Univention Management Console for admin­is­tra­ting the local system\"" \
+		--append description="\"de_DE\" \"Univention Management Console zur Ver­wal­tung des lokalen Systems\"" \
+		--append description="\"fr_FR\" \"Console de gestion Univention pour admin­is­trer le système local\"" \
+		--append link=/univention/management/ \
+		--set category=admin \
+		--set authRestriction=anonymous \
+		--set icon="$(base64 /usr/share/univention-management-console-frontend/js/dijit/themes/umc/icons/scalable/univention-management-console.svg)" \
+		--set portal="cn=local,cn=portal,cn=univention,$ldap_base" || die
+
+	# set link to master umc on all other system roles
+	ucr set \
+		ucs/web/overview/entries/admin/ucs-local-to-domain/label?"Univention Portal" \
+		ucs/web/overview/entries/admin/ucs-local-to-domain/label/de?"Univention Portal" \
+		ucs/web/overview/entries/admin/ucs-local-to-domain/label/fr?"Portail Univention" \
+		ucs/web/overview/entries/admin/ucs-local-to-domain/description?"Central portal web page for the UCS domain" \
+		ucs/web/overview/entries/admin/ucs-local-to-domain/description/de?"Zentrale Portal-Webseite für die UCS-Domäne" \
+		ucs/web/overview/entries/admin/ucs-local-to-domain/description/fr?"Page web du portail central du domaine UCS" \
+		ucs/web/overview/entries/admin/ucs-local-to-domain/icon?/univention/portal/portal-logo.svg \
+		ucs/web/overview/entries/admin/ucs-local-to-domain/link?/univention/portal/
+	univention-directory-manager "settings/portal_entry" modify "$@" --dn="cn=ucs-local-to-domain,cn=portal,cn=univention,$ldap_base" \
+		--set portal="cn=local,cn=portal,cn=univention,$ldap_base" || die
+fi
+
+set_portal="$(univention-directory-manager "computers/$role" list "$@" --filter cn="$hostname" | sed -n -e "s/^  portal: \(.*\)$/\1/p")"
+if [ -z "$set_portal" -o "$set_portal" = "None" ]; then
+	# link current computer object to corresponding portal
+	if [ "$role" = "domaincontroller_master" -o "$role" = "domaincontroller_backup" ]; then
+		default_portal="cn=domain,cn=portal,cn=univention,$ldap_base"
+	else
+		default_portal="cn=local,cn=portal,cn=univention,$ldap_base"
+	fi
+	univention-directory-manager "computers/$role" modify "$@" --dn="$ldap_hostdn" \
+		--set portal="$default_portal" || die
+fi
+
+# Reset old UCR variables otherwise the UCR handler is not executed
+if [ $JS_LAST_EXECUTED_VERSION = 0 ]; then
+	ucr search --brief "ucs/web/overview/entries/(admin|service)/.*/link" | awk '{print $1}' | while read k; do
+		key="${k%:}"
+		value="$(ucr get $key)"
+		if [ -n "$value" ]; then
+			ucr set "$key"="$value"
+		fi
+	done
+fi
+
+joinscript_save_current_version
+
+exit 0
